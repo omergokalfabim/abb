@@ -12,15 +12,15 @@ public class AracSahibi {
     @Column(name = "aracSahibiId", nullable = false, unique = true)
     private Long aracSahibiId;
     @Column(name = "adi")
-    private String aracSahibiAdi;
+    private String adi;
 
     @Column(name = "soyadi")
-    private String aracSahibiSoyadi;
+    private String soyadi;
     @Column(name = "kimlikNumarasi")
-    private String aracSahibiKimlikNumarasi;
+    private String kimlikNumarasi;
 
     @Column(name = "telefonNumarasi")
-    private String aracSahibiTelefonNumarasi;
+    private String telefonNumarasi;
 
     @Column(name = "isSahip")
     private boolean isSahip;
@@ -31,12 +31,12 @@ public class AracSahibi {
     public AracSahibi() {
     }
 
-    public AracSahibi(Long aracSahibiId, String aracSahibiAdi, String aracSahibiSoyadi, String aracSahibiKimlikNumarasi, String aracSahibiTelefonNumarasi, boolean isSahip, List<Arac> arac) {
+    public AracSahibi(Long aracSahibiId, String adi, String soyadi, String kimlikNumarasi, String telefonNumarasi, boolean isSahip, List<Arac> arac) {
         this.aracSahibiId = aracSahibiId;
-        this.aracSahibiAdi = aracSahibiAdi;
-        this.aracSahibiSoyadi = aracSahibiSoyadi;
-        this.aracSahibiKimlikNumarasi = aracSahibiKimlikNumarasi;
-        this.aracSahibiTelefonNumarasi = aracSahibiTelefonNumarasi;
+        this.adi = adi;
+        this.soyadi = soyadi;
+        this.kimlikNumarasi = kimlikNumarasi;
+        this.telefonNumarasi = telefonNumarasi;
         this.isSahip = isSahip;
         this.arac = arac;
     }
@@ -49,36 +49,36 @@ public class AracSahibi {
         this.aracSahibiId = aracSahibiId;
     }
 
-    public String getAracSahibiAdi() {
-        return aracSahibiAdi;
+    public String getAdi() {
+        return adi;
     }
 
-    public void setAracSahibiAdi(String aracSahibiAdi) {
-        this.aracSahibiAdi = aracSahibiAdi;
+    public void setAdi(String adi) {
+        this.adi = adi;
     }
 
-    public String getAracSahibiSoyadi() {
-        return aracSahibiSoyadi;
+    public String getSoyadi() {
+        return soyadi;
     }
 
-    public void setAracSahibiSoyadi(String aracSahibiSoyadi) {
-        this.aracSahibiSoyadi = aracSahibiSoyadi;
+    public void setSoyadi(String soyadi) {
+        this.soyadi = soyadi;
     }
 
-    public String getAracSahibiKimlikNumarasi() {
-        return aracSahibiKimlikNumarasi;
+    public String getKimlikNumarasi() {
+        return kimlikNumarasi;
     }
 
-    public void setAracSahibiKimlikNumarasi(String aracSahibiKimlikNumarasi) {
-        this.aracSahibiKimlikNumarasi = aracSahibiKimlikNumarasi;
+    public void setKimlikNumarasi(String kimlikNumarasi) {
+        this.kimlikNumarasi = kimlikNumarasi;
     }
 
-    public String getAracSahibiTelefonNumarasi() {
-        return aracSahibiTelefonNumarasi;
+    public String getTelefonNumarasi() {
+        return telefonNumarasi;
     }
 
-    public void setAracSahibiTelefonNumarasi(String aracSahibiTelefonNumarasi) {
-        this.aracSahibiTelefonNumarasi = aracSahibiTelefonNumarasi;
+    public void setTelefonNumarasi(String telefonNumarasi) {
+        this.telefonNumarasi = telefonNumarasi;
     }
 
     public boolean isSahip() {

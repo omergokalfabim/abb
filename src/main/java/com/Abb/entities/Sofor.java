@@ -11,13 +11,13 @@ public class Sofor {
     private Long soforId;
 
     @Column(name="Adi")
-    private String soforAdi;
+    private String adi;
 
     @Column(name="Soyadi")
-    private String soforSoyadi;
+    private String soyadi;
 
     @Column(name="Telefon")
-    private String soforTelefonNo;
+    private String telefon;
 
     @OneToOne
     @JoinColumn(name="arac_id")
@@ -26,44 +26,44 @@ public class Sofor {
     public Sofor() {
     }
 
-    public Sofor(long soforId, String soforAdi, String soforSoyadi, String soforTelefonNo, Arac arac) {
+    public Sofor(Long soforId, String adi, String soyadi, String telefon, Arac arac) {
         this.soforId = soforId;
-        this.soforAdi = soforAdi;
-        this.soforSoyadi = soforSoyadi;
-        this.soforTelefonNo = soforTelefonNo;
+        this.adi = adi;
+        this.soyadi = soyadi;
+        this.telefon = telefon;
         this.arac = arac;
     }
 
-    public long getSoforId() {
+    public Long getSoforId() {
         return soforId;
     }
 
-    public void setSoforId(long soforId) {
+    public void setSoforId(Long soforId) {
         this.soforId = soforId;
     }
 
-    public String getSoforAdi() {
-        return soforAdi;
+    public String getAdi() {
+        return adi;
     }
 
-    public void setSoforAdi(String soforAdi) {
-        this.soforAdi = soforAdi;
+    public void setAdi(String adi) {
+        this.adi = adi;
     }
 
-    public String getSoforSoyadi() {
-        return soforSoyadi;
+    public String getSoyadi() {
+        return soyadi;
     }
 
-    public void setSoforSoyadi(String soforSoyadi) {
-        this.soforSoyadi = soforSoyadi;
+    public void setSoyadi(String soyadi) {
+        this.soyadi = soyadi;
     }
 
-    public String getSoforTelefonNo() {
-        return soforTelefonNo;
+    public String getTelefon() {
+        return telefon;
     }
 
-    public void setSoforTelefonNo(String soforTelefonNo) {
-        this.soforTelefonNo = soforTelefonNo;
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
     }
 
     public Arac getArac() {
