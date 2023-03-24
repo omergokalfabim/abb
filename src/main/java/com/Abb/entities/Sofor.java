@@ -3,7 +3,7 @@ package com.Abb.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Sofor")
+@Table(name = "SOFORLER")
 public class Sofor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,8 @@ public class Sofor {
     @Column(name="Telefon")
     private String telefon;
 
-    @OneToOne(mappedBy = "sofor")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="arac_id")
     private Arac arac;
 
     public Sofor() {

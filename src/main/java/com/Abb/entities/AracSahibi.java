@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "AracSahibi")
+@Table(name = "ARAC_SAHIPLERI")
 public class AracSahibi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class AracSahibi {
     @Column(name = "isSahip")
     private boolean isSahip;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "aracSahibi",cascade = CascadeType.ALL)
     private List<Arac> arac;
 
     public AracSahibi() {

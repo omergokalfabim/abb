@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Arac")
+@Table(name = "ARACLAR")
 public class Arac {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,16 +19,15 @@ public class Arac {
     @Column(name = "plaka")
     private String plaka;
 
-    @ManyToOne(targetEntity = Tarife.class, cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "tarife_id")
     private Tarife tarife;
 
-    @ManyToOne(targetEntity = AracSahibi.class, cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "aracSahibi_id")
     private AracSahibi aracSahibi;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "sofor_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "arac",cascade = CascadeType.ALL)
     private Sofor sofor;
 
     @Column(name = "aciklama")

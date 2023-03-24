@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="Tarife")
+@Table(name="TARIFELER")
 public class Tarife {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +18,10 @@ public class Tarife {
     @Column(name = "tarifeUcret")
     private Double tarifeUcret;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "tarife",cascade = CascadeType.ALL)
     private List<Arac> arac;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "tarife",cascade = CascadeType.ALL)
     private List<Hareket> hareket;
 
     public Tarife() {

@@ -1,31 +1,32 @@
 package com.Abb.entities.dto;
 
 public class AracDto {
+    private int peronNo;
     private String firmaAdi;
 
     private String plaka;
-
-    private String tarifeAdi;
     private String aracSahibiAdi;
     private String aracSahibiSoyadi;
     private String aracSahibiKimlikNumarasi;
     private String aracSahibiTelefonNumarasi;
 
-    private String isSahip;
+    private boolean isSahip;
 
     private String soforAdi;
     private String soforSoyadi;
     private String soforTelefonNo;
 
+    private String tarifeAdi;
+    private double tarifeUcreti;
     private String aciklama;
 
     public AracDto() {
     }
 
-    public AracDto(String firmaAdi, String plaka, String tarifeAdi, String aracSahibiAdi, String aracSahibiSoyadi, String aracSahibiKimlikNumarasi, String aracSahibiTelefonNumarasi, String isSahip, String soforAdi, String soforSoyadi, String soforTelefonNo, String aciklama) {
+    public AracDto(int peronNo, String firmaAdi, String plaka, String aracSahibiAdi, String aracSahibiSoyadi, String aracSahibiKimlikNumarasi, String aracSahibiTelefonNumarasi, boolean isSahip, String soforAdi, String soforSoyadi, String soforTelefonNo, String tarifeAdi, double tarifeUcreti, String aciklama) {
+        this.peronNo = peronNo;
         this.firmaAdi = firmaAdi;
         this.plaka = plaka;
-        this.tarifeAdi = tarifeAdi;
         this.aracSahibiAdi = aracSahibiAdi;
         this.aracSahibiSoyadi = aracSahibiSoyadi;
         this.aracSahibiKimlikNumarasi = aracSahibiKimlikNumarasi;
@@ -34,7 +35,17 @@ public class AracDto {
         this.soforAdi = soforAdi;
         this.soforSoyadi = soforSoyadi;
         this.soforTelefonNo = soforTelefonNo;
+        this.tarifeAdi = tarifeAdi;
+        this.tarifeUcreti = tarifeUcreti;
         this.aciklama = aciklama;
+    }
+
+    public int getPeronNo() {
+        return peronNo;
+    }
+
+    public void setPeronNo(int peronNo) {
+        this.peronNo = peronNo;
     }
 
     public String getFirmaAdi() {
@@ -51,14 +62,6 @@ public class AracDto {
 
     public void setPlaka(String plaka) {
         this.plaka = plaka;
-    }
-
-    public String getTarifeAdi() {
-        return tarifeAdi;
-    }
-
-    public void setTarifeAdi(String tarifeAdi) {
-        this.tarifeAdi = tarifeAdi;
     }
 
     public String getAracSahibiAdi() {
@@ -93,12 +96,12 @@ public class AracDto {
         this.aracSahibiTelefonNumarasi = aracSahibiTelefonNumarasi;
     }
 
-    public String getIsSahip() {
+    public boolean isSahip() {
         return isSahip;
     }
 
-    public void setIsSahip(String isSahip) {
-        this.isSahip = isSahip;
+    public void setSahip(boolean sahip) {
+        isSahip = sahip;
     }
 
     public String getSoforAdi() {
@@ -123,6 +126,22 @@ public class AracDto {
 
     public void setSoforTelefonNo(String soforTelefonNo) {
         this.soforTelefonNo = soforTelefonNo;
+    }
+
+    public String getTarifeAdi() {
+        return tarifeAdi;
+    }
+
+    public void setTarifeAdi(String tarifeAdi) {
+        this.tarifeAdi = tarifeAdi;
+    }
+
+    public double getTarifeUcreti() {
+        return tarifeUcreti;
+    }
+
+    public void setTarifeUcreti(double tarifeUcreti) {
+        this.tarifeUcreti = tarifeUcreti;
     }
 
     public String getAciklama() {
