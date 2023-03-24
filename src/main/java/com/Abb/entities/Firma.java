@@ -9,8 +9,8 @@ import java.util.List;
 public class Firma {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "firmaId", unique = true, nullable = false)
-    private Long firmaId;
+    @Column(name = "id", unique = true, nullable = false)
+    private Long id;
 
     @Column(name = "peronNo")
     private Integer peronNo;
@@ -46,8 +46,8 @@ public class Firma {
     public Firma() {
     }
 
-    public Firma(Long firmaId, Integer peronNo, String firmaAdi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, List<Arac> araclar, List<Hareket> hareket) {
-        this.firmaId = firmaId;
+    public Firma(Long id, Integer peronNo, String firmaAdi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, List<Arac> araclar, List<Hareket> hareket) {
+        this.id = id;
         this.peronNo = peronNo;
         this.firmaAdi = firmaAdi;
         this.yetkiliAdi = yetkiliAdi;
@@ -60,12 +60,12 @@ public class Firma {
         this.hareket = hareket;
     }
 
-    public Long getFirmaId() {
-        return firmaId;
+    public Long getId() {
+        return id;
     }
 
-    public void setFirmaId(Long firmaId) {
-        this.firmaId = firmaId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getPeronNo() {

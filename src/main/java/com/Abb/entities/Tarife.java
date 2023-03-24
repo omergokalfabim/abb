@@ -9,8 +9,8 @@ import java.util.List;
 public class Tarife {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="tarifeId", unique = true,nullable = false)
-    private Long tarifeId;
+    @Column(name="id", unique = true,nullable = false)
+    private Long id;
 
     @Column(name="tarifeAdi")
     private String tarifeAdi;
@@ -27,20 +27,20 @@ public class Tarife {
     public Tarife() {
     }
 
-    public Tarife(long tarifeId, String tarifeAdi, double tarifeUcret,  List<Arac> arac, List<Hareket> hareket) {
-        this.tarifeId = tarifeId;
+    public Tarife(long id, String tarifeAdi, double tarifeUcret,  List<Arac> arac, List<Hareket> hareket) {
+        this.id = id;
         this.tarifeAdi = tarifeAdi;
         this.tarifeUcret = tarifeUcret;
         this.arac = arac;
         this.hareket = hareket;
     }
 
-    public long getTarifeId() {
-        return tarifeId;
+    public long getId() {
+        return id;
     }
 
-    public void setTarifeId(long tarifeId) {
-        this.tarifeId = tarifeId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTarifeAdi() {

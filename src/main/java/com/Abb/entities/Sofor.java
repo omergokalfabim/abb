@@ -7,8 +7,8 @@ import jakarta.persistence.*;
 public class Sofor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id",unique = true,nullable = false)
-    private Long soforId;
+    @Column(name = "id",unique = true,nullable = false)
+    private Long id;
 
     @Column(name="Adi")
     private String adi;
@@ -19,27 +19,26 @@ public class Sofor {
     @Column(name="Telefon")
     private String telefon;
 
-    @OneToOne
-    @JoinColumn(name="arac_id")
+    @OneToOne(mappedBy = "sofor")
     private Arac arac;
 
     public Sofor() {
     }
 
-    public Sofor(Long soforId, String adi, String soyadi, String telefon, Arac arac) {
-        this.soforId = soforId;
+    public Sofor(Long id, String adi, String soyadi, String telefon, Arac arac) {
+        this.id = id;
         this.adi = adi;
         this.soyadi = soyadi;
         this.telefon = telefon;
         this.arac = arac;
     }
 
-    public Long getSoforId() {
-        return soforId;
+    public Long getId() {
+        return id;
     }
 
-    public void setSoforId(Long soforId) {
-        this.soforId = soforId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getAdi() {

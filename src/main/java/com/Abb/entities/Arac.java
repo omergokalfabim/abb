@@ -9,8 +9,8 @@ import java.util.List;
 public class Arac {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "aracId", nullable = false, unique = true)
-    private Long aracId;
+    @Column(name = "id", nullable = false, unique = true)
+    private Long id;
 
     @ManyToOne(targetEntity = Firma.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "firma_id")
@@ -27,8 +27,8 @@ public class Arac {
     @JoinColumn(name = "aracSahibi_id")
     private AracSahibi aracSahibi;
 
-    @OneToOne(mappedBy = "arac", cascade = CascadeType.ALL)
-    @JoinColumn(name = "sofor_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sofor_id", referencedColumnName = "id")
     private Sofor sofor;
 
     @Column(name = "aciklama")
@@ -40,8 +40,8 @@ public class Arac {
     public Arac() {
     }
 
-    public Arac(Long aracId, Firma firma, String plaka, Tarife tarife, AracSahibi aracSahibi, Sofor sofor, String aciklama, List<Hareket> hareket) {
-        this.aracId = aracId;
+    public Arac(Long id, Firma firma, String plaka, Tarife tarife, AracSahibi aracSahibi, Sofor sofor, String aciklama, List<Hareket> hareket) {
+        this.id = id;
         this.firma = firma;
         this.plaka = plaka;
         this.tarife = tarife;
@@ -51,12 +51,12 @@ public class Arac {
         this.hareket = hareket;
     }
 
-    public Long getAracId() {
-        return aracId;
+    public Long getId() {
+        return id;
     }
 
-    public void setAracId(Long aracId) {
-        this.aracId = aracId;
+    public void setId(Long aracId) {
+        this.id = id;
     }
 
     public Firma getFirma() {

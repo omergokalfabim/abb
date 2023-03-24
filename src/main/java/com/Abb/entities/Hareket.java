@@ -8,7 +8,7 @@ public class Hareket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long hareketId;
+    private Long id;
     @Column(name="tarih",nullable = true)
     private String tarih;
     @Column(name="saat",nullable = true)
@@ -34,8 +34,8 @@ public class Hareket {
     public Hareket() {
     }
 
-    public Hareket(Long hareketId, String tarih, String saat, Arac arac, Firma firma, Tarife tarife, String not) {
-        this.hareketId = hareketId;
+    public Hareket(Long id, String tarih, String saat, Arac arac, Firma firma, Tarife tarife, String not) {
+        this.id = id;
         this.tarih = tarih;
         this.saat = saat;
         this.arac = arac;
@@ -44,12 +44,12 @@ public class Hareket {
         this.not = not;
     }
 
-    public Long getHareketId() {
-        return hareketId;
+    public Long getId() {
+        return id;
     }
 
-    public void setHareketId(Long hareketId) {
-        this.hareketId = hareketId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTarih() {

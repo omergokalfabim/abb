@@ -9,8 +9,8 @@ import java.util.List;
 public class AracSahibi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "aracSahibiId", nullable = false, unique = true)
-    private Long aracSahibiId;
+    @Column(name = "id", nullable = false, unique = true)
+    private Long id;
     @Column(name = "adi")
     private String adi;
 
@@ -31,8 +31,8 @@ public class AracSahibi {
     public AracSahibi() {
     }
 
-    public AracSahibi(Long aracSahibiId, String adi, String soyadi, String kimlikNumarasi, String telefonNumarasi, boolean isSahip, List<Arac> arac) {
-        this.aracSahibiId = aracSahibiId;
+    public AracSahibi(Long id, String adi, String soyadi, String kimlikNumarasi, String telefonNumarasi, boolean isSahip, List<Arac> arac) {
+        this.id = id;
         this.adi = adi;
         this.soyadi = soyadi;
         this.kimlikNumarasi = kimlikNumarasi;
@@ -41,12 +41,12 @@ public class AracSahibi {
         this.arac = arac;
     }
 
-    public Long getAracSahibiId() {
-        return aracSahibiId;
+    public Long getid() {
+        return id;
     }
 
-    public void setAracSahibiId(Long aracSahibiId) {
-        this.aracSahibiId = aracSahibiId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getAdi() {
