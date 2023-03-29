@@ -1,7 +1,7 @@
 package com.Abb.webApi.controllers;
 
 import com.Abb.business.interfaces.AracSahibiService;
-import com.Abb.entities.dto.AracSahibiDto;
+import com.Abb.business.requests.CreateAracSahibiRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +20,7 @@ public class AracSahibiController {
     }
 
     @PostMapping()
-    public ResponseEntity<Object> insert(@RequestBody AracSahibiDto aracSahibiDto) throws Exception {
-        return ResponseEntity.ok(this._aracSahibiService.insert(aracSahibiDto)) ;
+    public ResponseEntity<Object> insert(@RequestBody CreateAracSahibiRequest createAracSahibiRequest) throws Exception {
+        return ResponseEntity.ok(this._aracSahibiService.insert(createAracSahibiRequest)) ;
     }
 }

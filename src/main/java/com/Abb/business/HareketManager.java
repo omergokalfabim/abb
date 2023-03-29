@@ -1,11 +1,12 @@
 package com.Abb.business;
 
 import com.Abb.business.interfaces.HareketService;
+import com.Abb.business.requests.CreateHareketRequest;
+import com.Abb.business.responses.GetAllHareketResponse;
 import com.Abb.dataAccess.HareketRepository;
 
 import com.Abb.entities.Hareket;
 
-import com.Abb.entities.dto.HareketDto;
 import com.Abb.utilities.mappers.ModelMapperService;
 import com.Abb.utilities.results.DataResult;
 import com.Abb.utilities.results.Result;
@@ -29,7 +30,7 @@ public class HareketManager implements HareketService {
     }
 
     @Override
-    public DataResult<HareketDto> insert(HareketDto entity) throws Exception {
+    public DataResult<CreateHareketRequest> insert(CreateHareketRequest entity) throws Exception {
        Hareket hareket= this._modelMapperService.forRequest().map(entity, Hareket.class);
 
         Date thisDate= new Date();
@@ -40,17 +41,17 @@ public class HareketManager implements HareketService {
 
 
         this._hareketRepository.save(hareket);
-        return new SuccessDataResult<HareketDto>("Success");
+        return new SuccessDataResult<CreateHareketRequest>("Success");
     }
 
     @Override
-    public DataResult<List<HareketDto>> selectAll(){
+    public DataResult<List<GetAllHareketResponse>> selectAll(){
         List<Hareket> hareketList=this._hareketRepository.findAll();
-        List<HareketDto> hareketDtoList=hareketList.stream().map(hareket->this._modelMapperService.forResponse().map(hareket, HareketDto.class)).collect(Collectors.toList());
-        return new SuccessDataResult<List<HareketDto>>(hareketDtoList,"Success");
+        List<GetAllHareketResponse> hareketDtoList=hareketList.stream().map(hareket->this._modelMapperService.forResponse().map(hareket, GetAllHareketResponse.class)).collect(Collectors.toList());
+        return new SuccessDataResult<List<GetAllHareketResponse>>(hareketDtoList,"Success");
     }
     @Override
-    public DataResult<HareketDto> update(HareketDto entity) throws Exception {
+    public DataResult<CreateHareketRequest> update(CreateHareketRequest entity) throws Exception {
         return null;
     }
 
@@ -60,12 +61,12 @@ public class HareketManager implements HareketService {
     }
 
     @Override
-    public DataResult<Hareket> find(Object id) throws Exception {
+    public DataResult<GetAllHareketResponse> find(Object id) throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<Hareket> find(String command) throws Exception {
+    public DataResult<GetAllHareketResponse> find(String command) throws Exception {
         return null;
     }
 
@@ -81,7 +82,7 @@ public class HareketManager implements HareketService {
 
 
     @Override
-    public DataResult<List<HareketDto>> selectAll(String command) throws Exception {
+    public DataResult<List<GetAllHareketResponse>> selectAll(String command) throws Exception {
         return null;
     }
 
@@ -96,7 +97,7 @@ public class HareketManager implements HareketService {
     }
 
     @Override
-    public Result deleteByEntity(HareketDto entity) throws Exception {
+    public Result deleteByEntity(CreateHareketRequest entity) throws Exception {
         return null;
     }
 

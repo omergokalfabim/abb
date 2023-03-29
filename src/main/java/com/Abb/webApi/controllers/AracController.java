@@ -1,7 +1,7 @@
 package com.Abb.webApi.controllers;
 
 import com.Abb.business.interfaces.AracService;
-import com.Abb.entities.dto.AracDto;
+import com.Abb.business.requests.CreateAracRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +20,7 @@ public class AracController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> insert(@RequestBody AracDto aracDto)throws Exception{
-        return ResponseEntity.ok(this._aracService.insert(aracDto));
+    public ResponseEntity<Object> insert(@RequestBody CreateAracRequest createAracRequest)throws Exception{
+        return ResponseEntity.ok(this._aracService.insert(createAracRequest));
     }
 }

@@ -1,14 +1,14 @@
 package com.Abb.business;
 
 import com.Abb.business.interfaces.AracService;
+import com.Abb.business.requests.CreateAracRequest;
+import com.Abb.business.responses.GetAllAracResponse;
 import com.Abb.dataAccess.AracRepository;
 import com.Abb.entities.Arac;
-import com.Abb.entities.dto.AracDto;
 import com.Abb.utilities.mappers.ModelMapperService;
 import com.Abb.utilities.results.DataResult;
 import com.Abb.utilities.results.Result;
 import com.Abb.utilities.results.SuccessDataResult;
-import com.Abb.utilities.results.SuccessResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,23 +19,23 @@ import java.util.Map;
 public class AracManager implements AracService {
 
     AracRepository _aracRepository;
-    ModelMapperService _modelMapperServie;
+    ModelMapperService _modelMapperService;
 
     @Autowired
     public AracManager(AracRepository _aracRepository, ModelMapperService _modelMapperServie) {
         this._aracRepository = _aracRepository;
-        this._modelMapperServie = _modelMapperServie;
+        this._modelMapperService = _modelMapperServie;
     }
 
     @Override
-    public DataResult<AracDto> insert(AracDto entity) throws Exception {
-        Arac arac= this._modelMapperServie.forRequest().map(entity,Arac.class);
+    public DataResult<CreateAracRequest> insert(CreateAracRequest entity) throws Exception {
+        Arac arac= this._modelMapperService.forRequest().map(entity,Arac.class);
         this._aracRepository.save(arac);
-        return new SuccessDataResult<AracDto>(entity);
+        return new SuccessDataResult<CreateAracRequest>(entity);
     }
 
     @Override
-    public DataResult<AracDto> update(AracDto entity) throws Exception {
+    public DataResult<CreateAracRequest> update(CreateAracRequest entity) throws Exception {
         return null;
     }
 
@@ -45,12 +45,12 @@ public class AracManager implements AracService {
     }
 
     @Override
-    public DataResult<AracDto> find(Object id) throws Exception {
+    public DataResult<GetAllAracResponse> find(Object id) throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<AracDto> find(String command) throws Exception {
+    public DataResult<GetAllAracResponse> find(String command) throws Exception {
         return null;
     }
 
@@ -65,12 +65,12 @@ public class AracManager implements AracService {
     }
 
     @Override
-    public DataResult<List<AracDto>> selectAll() throws Exception {
+    public DataResult<List<GetAllAracResponse>> selectAll() throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<List<AracDto>> selectAll(String command) throws Exception {
+    public DataResult<List<GetAllAracResponse>> selectAll(String command) throws Exception {
         return null;
     }
 

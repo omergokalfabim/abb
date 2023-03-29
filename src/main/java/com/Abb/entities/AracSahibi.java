@@ -3,36 +3,37 @@ package com.Abb.entities;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "ARAC_SAHIPLERI")
 public class AracSahibi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true)
-    private Long id;
+    @Column(name = "AracSahibiId", nullable = false, unique = true)
+    private Long aracSahibiId;
     @Column(name = "adi")
     private String adi;
 
-    @Column(name = "soyadi")
+    @Column(name = "Soyadi")
     private String soyadi;
-    @Column(name = "kimlikNumarasi")
+    @Column(name = "KimlikNumarasi")
     private String kimlikNumarasi;
 
-    @Column(name = "telefonNumarasi")
+    @Column(name = "TelefonNumarasi")
     private String telefonNumarasi;
 
-    @Column(name = "isSahip")
-    private boolean isSahip;
+    @Column(name = "Sahip")
+    private Boolean isSahip;
 
-    @OneToMany(mappedBy = "aracSahibi",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "aracSahibi")
     private List<Arac> arac;
 
     public AracSahibi() {
     }
 
-    public AracSahibi(Long id, String adi, String soyadi, String kimlikNumarasi, String telefonNumarasi, boolean isSahip, List<Arac> arac) {
-        this.id = id;
+    public AracSahibi(Long aracSahibiId, String adi, String soyadi, String kimlikNumarasi, String telefonNumarasi, Boolean isSahip, List<Arac> arac) {
+        this.aracSahibiId = aracSahibiId;
         this.adi = adi;
         this.soyadi = soyadi;
         this.kimlikNumarasi = kimlikNumarasi;
@@ -41,16 +42,16 @@ public class AracSahibi {
         this.arac = arac;
     }
 
-    public Long getid() {
-        return id;
+    public Long getAracSahibiId() {
+        return this.aracSahibiId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAracSahibiId(Long aracSahibiId) {
+        this.aracSahibiId = aracSahibiId;
     }
 
     public String getAdi() {
-        return adi;
+        return this.adi;
     }
 
     public void setAdi(String adi) {
@@ -81,11 +82,11 @@ public class AracSahibi {
         this.telefonNumarasi = telefonNumarasi;
     }
 
-    public boolean isSahip() {
+    public Boolean isSahip() {
         return isSahip;
     }
 
-    public void setSahip(boolean sahip) {
+    public void setSahip(Boolean sahip) {
         isSahip = sahip;
     }
 

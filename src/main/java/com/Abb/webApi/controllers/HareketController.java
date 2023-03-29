@@ -1,8 +1,7 @@
 package com.Abb.webApi.controllers;
 
 import com.Abb.business.interfaces.HareketService;
-import com.Abb.entities.Hareket;
-import com.Abb.entities.dto.HareketDto;
+import com.Abb.business.requests.CreateHareketRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,12 +18,12 @@ public class HareketController {
 
 
     @PostMapping()
-    public void insert(@RequestBody HareketDto hareketDto) throws Exception {
-        this.hareketService.insert(hareketDto);
+    public void insert(@RequestBody CreateHareketRequest createHareketRequest) throws Exception {
+        this.hareketService.insert(createHareketRequest);
     }
 
     @GetMapping()
-    public ResponseEntity<Object> selectAllDto() throws Exception {
+    public ResponseEntity<Object> selectAll() throws Exception {
         return ResponseEntity.ok(this.hareketService.selectAll());
     }
 }

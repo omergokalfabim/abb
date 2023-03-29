@@ -7,49 +7,48 @@ import jakarta.persistence.*;
 public class Hareket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-    @Column(name="tarih",nullable = true)
+    @Column(name = "HareketId")
+    private Long hareketId;
+    @Column(name = "Tarih", nullable = true)
     private String tarih;
-    @Column(name="saat",nullable = true)
+    @Column(name = "Saat", nullable = true)
     private String saat;
 
-    @ManyToOne(targetEntity = Arac.class, cascade = CascadeType.ALL)
-    @JoinColumn(name="arac_id")
+    @ManyToOne(targetEntity = Arac.class)
+    @JoinColumn(name = "arac_id", foreignKey = @ForeignKey(name = "FK_HAREKETLER_ARACLAR"))
     private Arac arac;
 
-    @ManyToOne(targetEntity = Firma.class, cascade =CascadeType.ALL)
-    @JoinColumn(name = "firma_id")
+    @ManyToOne(targetEntity = Firma.class)
+    @JoinColumn(name = "firma_id", foreignKey = @ForeignKey(name = "FK_HAREKETLER_FIRMALAR"))
     private Firma firma;
 
-    @ManyToOne(targetEntity = Tarife.class, cascade = CascadeType.ALL)
-    @JoinColumn(name="tarife_id")
+    @ManyToOne(targetEntity = Tarife.class)
+    @JoinColumn(name = "tarife_id", foreignKey = @ForeignKey(name = "FK_HAREKETLER_TARIFELER"))
     private Tarife tarife;
 
-    @Column(name="aciklama")
-    private String not;
-
+    @Column(name = "Aciklama")
+    private String aciklama;
 
 
     public Hareket() {
     }
 
-    public Hareket(Long id, String tarih, String saat, Arac arac, Firma firma, Tarife tarife, String not) {
-        this.id = id;
+    public Hareket(Long hareketId, String tarih, String saat, Arac arac, Firma firma, Tarife tarife, String aciklama) {
+        this.hareketId = hareketId;
         this.tarih = tarih;
         this.saat = saat;
         this.arac = arac;
         this.firma = firma;
         this.tarife = tarife;
-        this.not = not;
+        this.aciklama = aciklama;
     }
 
-    public Long getId() {
-        return id;
+    public Long getHareketId() {
+        return hareketId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setHareketId(Long hareketId) {
+        this.hareketId = hareketId;
     }
 
     public String getTarih() {
@@ -93,10 +92,10 @@ public class Hareket {
     }
 
     public String getAciklama() {
-        return not;
+        return aciklama;
     }
 
     public void setAciklama(String aciklama) {
-        this.not = not;
+        this.aciklama = aciklama;
     }
 }

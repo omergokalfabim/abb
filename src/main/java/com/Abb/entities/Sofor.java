@@ -2,13 +2,16 @@ package com.Abb.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+import java.util.List;
+
 @Entity
 @Table(name = "SOFORLER")
 public class Sofor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id",unique = true,nullable = false)
-    private Long id;
+    @Column(name = "SoforId",unique = true,nullable = false)
+    private Long soforId;
 
     @Column(name="Adi")
     private String adi;
@@ -19,27 +22,35 @@ public class Sofor {
     @Column(name="Telefon")
     private String telefon;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="arac_id")
-    private Arac arac;
+    @Column(name="KayitTarihi")
+    private Date kayitTarihi;
+
+    @Column(name="KullaniciKod")
+    private Short kullaniciKod;
+
+    @OneToMany
+    @JoinColumn(name="soforId", referencedColumnName = "soforId")
+    private List<SoforMapArac> soforMapArac;
 
     public Sofor() {
     }
 
-    public Sofor(Long id, String adi, String soyadi, String telefon, Arac arac) {
-        this.id = id;
+    public Sofor(Long soforId, String adi, String soyadi, String telefon, Date kayitTarihi, Short kullaniciKod, List<SoforMapArac> soforMapArac) {
+        this.soforId = soforId;
         this.adi = adi;
         this.soyadi = soyadi;
         this.telefon = telefon;
-        this.arac = arac;
+        this.kayitTarihi = kayitTarihi;
+        this.kullaniciKod = kullaniciKod;
+        this.soforMapArac = soforMapArac;
     }
 
-    public Long getId() {
-        return id;
+    public Long getSoforId() {
+        return soforId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSoforId(Long soforId) {
+        this.soforId = soforId;
     }
 
     public String getAdi() {
@@ -66,11 +77,27 @@ public class Sofor {
         this.telefon = telefon;
     }
 
-    public Arac getArac() {
-        return arac;
+    public Date getKayitTarihi() {
+        return kayitTarihi;
     }
 
-    public void setArac(Arac arac) {
-        this.arac = arac;
+    public void setKayitTarihi(Date kayitTarihi) {
+        this.kayitTarihi = kayitTarihi;
+    }
+
+    public Short getKullaniciKod() {
+        return kullaniciKod;
+    }
+
+    public void setKullaniciKod(Short kullaniciKod) {
+        this.kullaniciKod = kullaniciKod;
+    }
+
+    public List<SoforMapArac> getSoforlerMapAraclar() {
+        return soforMapArac;
+    }
+
+    public void setSoforlerMapAraclar(List<SoforMapArac> soforMapArac) {
+        this.soforMapArac = soforMapArac;
     }
 }

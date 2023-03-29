@@ -1,9 +1,7 @@
 package com.Abb.business.interfaces;
 
-import com.Abb.entities.Firma;
-import com.Abb.entities.Sofor;
-import com.Abb.entities.dto.FirmaDto;
-import com.Abb.entities.dto.SoforDto;
+import com.Abb.business.requests.CreateSoforRequest;
+import com.Abb.business.responses.GetAllSoforResponse;
 import com.Abb.utilities.results.DataResult;
 import com.Abb.utilities.results.Result;
 
@@ -11,29 +9,29 @@ import java.util.List;
 import java.util.Map;
 
 public interface SoforService {
-    DataResult<SoforDto> insert(SoforDto entity) throws Exception;
+    DataResult<CreateSoforRequest> insert(CreateSoforRequest entity) throws Exception;
 
-    DataResult<SoforDto> update(SoforDto entity) throws Exception;
+    DataResult<CreateSoforRequest> update(CreateSoforRequest entity) throws Exception;
 
     Result update(String command) throws Exception;
 
-    DataResult<SoforDto> find(Object id) throws Exception;
+    DataResult<GetAllSoforResponse> find(Object id) throws Exception;
 
-    DataResult<SoforDto> find(String command) throws Exception;
+    DataResult<GetAllSoforResponse> find(String command) throws Exception;
 
     DataResult<Object[]> findObjectArray(String command) throws Exception;
 
     DataResult<Object> executeQuery(String command) throws Exception;
 
-    DataResult<List<SoforDto>> selectAll() throws Exception;
+    DataResult<List<GetAllSoforResponse>> selectAll() throws Exception;
 
-    DataResult<List<SoforDto>> selectAll(String command) throws Exception;
+    DataResult<List<GetAllSoforResponse>> selectAll(String command) throws Exception;
 
     DataResult<List<Object[]>> selectAllByObject(String command) throws Exception;
 
     DataResult<List<Object[]>> selectAllByObject(String command, Map<String, Object> parameters) throws Exception;
 
-    Result deleteByEntity(Sofor entity) throws Exception;
+    Result deleteByEntity(CreateSoforRequest entity) throws Exception;
 
     Result deleteById(long id) throws Exception;
 

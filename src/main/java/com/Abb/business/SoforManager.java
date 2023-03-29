@@ -1,17 +1,23 @@
 package com.Abb.business;
 
 import com.Abb.business.interfaces.SoforService;
+import com.Abb.business.requests.CreateSoforRequest;
+import com.Abb.business.responses.GetAllAracResponse;
+import com.Abb.business.responses.GetAllSoforResponse;
 import com.Abb.dataAccess.SoforRepository;
 import com.Abb.entities.Sofor;
-import com.Abb.entities.dto.SoforDto;
+import com.Abb.utilities.BeanBuilder;
 import com.Abb.utilities.mappers.ModelMapperService;
 import com.Abb.utilities.results.DataResult;
 import com.Abb.utilities.results.Result;
 import com.Abb.utilities.results.SuccessDataResult;
+import org.modelmapper.TypeMap;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class SoforManager implements SoforService {
@@ -24,14 +30,16 @@ public class SoforManager implements SoforService {
     }
 
     @Override
-    public DataResult<SoforDto> insert(SoforDto entity) throws Exception {
+    public DataResult<CreateSoforRequest> insert(CreateSoforRequest entity) throws Exception {
         Sofor sofor=this._modelMapperService.forRequest().map(entity,Sofor.class);
+        Date thisDate=new Date();
+        sofor.setKayitTarihi(thisDate);
         this._soforRepository.save(sofor);
-        return new SuccessDataResult<SoforDto>(entity);
+        return new SuccessDataResult<CreateSoforRequest>(entity);
     }
 
     @Override
-    public DataResult<SoforDto> update(SoforDto entity) throws Exception {
+    public DataResult<CreateSoforRequest> update(CreateSoforRequest entity) throws Exception {
         return null;
     }
 
@@ -41,12 +49,12 @@ public class SoforManager implements SoforService {
     }
 
     @Override
-    public DataResult<SoforDto> find(Object id) throws Exception {
+    public DataResult<GetAllSoforResponse> find(Object id) throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<SoforDto> find(String command) throws Exception {
+    public DataResult<GetAllSoforResponse> find(String command) throws Exception {
         return null;
     }
 
@@ -61,15 +69,18 @@ public class SoforManager implements SoforService {
     }
 
     @Override
-    public DataResult<List<SoforDto>> selectAll() throws Exception {
-        return null;
+    public DataResult<List<GetAllSoforResponse>> selectAll() throws Exception {
+       List<Sofor> sofors=this._soforRepository.findAll();
+       List<GetAllSoforResponse> soforler=sofors.stream().map(sofor -> this._modelMapperService.forResponse().map(sofor,GetAllSoforResponse.class)).collect(Collectors.toList());
+//       List<GetAllSoforResponse> soforler= BeanBuilder.buildList(sofors,
+//                GetAllSoforResponse.propertyOrder, GetAllSoforResponse.class);
+       return new SuccessDataResult<List<GetAllSoforResponse>>(soforler);
     }
 
     @Override
-    public DataResult<List<SoforDto>> selectAll(String command) throws Exception {
+    public DataResult<List<GetAllSoforResponse>> selectAll(String command) throws Exception {
         return null;
     }
-
     @Override
     public DataResult<List<Object[]>> selectAllByObject(String command) throws Exception {
         return null;
@@ -81,7 +92,7 @@ public class SoforManager implements SoforService {
     }
 
     @Override
-    public Result deleteByEntity(Sofor entity) throws Exception {
+    public Result deleteByEntity(CreateSoforRequest entity) throws Exception {
         return null;
     }
 

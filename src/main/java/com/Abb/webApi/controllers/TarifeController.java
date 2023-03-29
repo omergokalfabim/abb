@@ -1,8 +1,7 @@
 package com.Abb.webApi.controllers;
 
 import com.Abb.business.interfaces.TarifeService;
-import com.Abb.entities.Tarife;
-import com.Abb.entities.dto.TarifeDto;
+import com.Abb.business.requests.CreateTarifeRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +18,7 @@ public class TarifeController {
         this.tarifeService = tarifeService;
     }
     @PostMapping()
-    public void add(@RequestBody TarifeDto tarifeDto) throws Exception {
-        this.tarifeService.insert(tarifeDto);
+    public void add(@RequestBody CreateTarifeRequest createTarifeRequest) throws Exception {
+        this.tarifeService.insert(createTarifeRequest);
     }
 }

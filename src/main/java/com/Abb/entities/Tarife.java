@@ -3,44 +3,45 @@ package com.Abb.entities;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="TARIFELER")
 public class Tarife {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id", unique = true,nullable = false)
-    private Long id;
+    @Column(name="TarifeId", unique = true,nullable = false)
+    private Long tarifeId;
 
-    @Column(name="tarifeAdi")
+    @Column(name="TarifeAdi")
     private String tarifeAdi;
 
-    @Column(name = "tarifeUcret")
-    private Double tarifeUcret;
+    @Column(name = "TarifeUcreti")
+    private Double tarifeUcreti;
 
-    @OneToMany(mappedBy = "tarife",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "tarife")
     private List<Arac> arac;
 
-    @OneToMany(mappedBy = "tarife",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "tarife")
     private List<Hareket> hareket;
 
     public Tarife() {
     }
 
-    public Tarife(long id, String tarifeAdi, double tarifeUcret,  List<Arac> arac, List<Hareket> hareket) {
-        this.id = id;
+    public Tarife(Long tarifeId, String tarifeAdi, Double tarifeUcreti, List<Arac> arac, List<Hareket> hareket) {
+        this.tarifeId = tarifeId;
         this.tarifeAdi = tarifeAdi;
-        this.tarifeUcret = tarifeUcret;
+        this.tarifeUcreti = tarifeUcreti;
         this.arac = arac;
         this.hareket = hareket;
     }
 
-    public long getId() {
-        return id;
+    public Long getTarifeId() {
+        return tarifeId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setTarifeId(Long tarifeId) {
+        this.tarifeId = tarifeId;
     }
 
     public String getTarifeAdi() {
@@ -51,27 +52,27 @@ public class Tarife {
         this.tarifeAdi = tarifeAdi;
     }
 
-    public double getTarifeUcret() {
-        return tarifeUcret;
+    public Double getTarifeUcreti() {
+        return tarifeUcreti;
     }
 
-    public void setTarifeUcret(double tarifeUcret) {
-        this.tarifeUcret = tarifeUcret;
+    public void setTarifeUcreti(Double tarifeUcreti) {
+        this.tarifeUcreti = tarifeUcreti;
     }
 
-    public  List<Arac> getArac() {
+    public List<Arac> getArac() {
         return arac;
     }
 
-    public void setArac( List<Arac> arac) {
+    public void setArac(List<Arac> arac) {
         this.arac = arac;
     }
 
-    public List<Hareket> getOtogar() {
+    public List<Hareket> getHareket() {
         return hareket;
     }
 
-    public void setOtogar(List<Hareket> hareket) {
+    public void setHareket(List<Hareket> hareket) {
         this.hareket = hareket;
     }
 }

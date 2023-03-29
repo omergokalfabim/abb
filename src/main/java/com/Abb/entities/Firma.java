@@ -9,32 +9,32 @@ import java.util.List;
 public class Firma {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
-    private Long id;
+    @Column(name = "FirmaId", unique = true, nullable = false)
+    private Long FirmaId;
 
-    @Column(name = "peronNo")
+    @Column(name = "PeronNo")
     private Integer peronNo;
 
-    @Column(name = "firmaAdi")
+    @Column(name = "FirmaAdi")
     private String firmaAdi;
 
 
-    @Column(name = "yetkiliAdi")
+    @Column(name = "YetkiliAdi")
     private String yetkiliAdi;
 
-    @Column(name = "yetkiliSoyadi")
+    @Column(name = "YetkiliSoyadi")
     private String yetkiliSoyadi;
 
-    @Column(name = "telefonNo")
+    @Column(name = "TelefonNo")
     private String telefonNo;
 
-    @Column(name = "dahiliTelefonNo")
+    @Column(name = "DahiliTelefonNo")
     private String dahiliTelefonNo;
 
-    @Column(name = "gsmNo")
+    @Column(name = "GsmNo")
     private String gsmNo;
 
-    @Column(name = "aciklama")
+    @Column(name = "Aciklama")
     private String aciklama;
 
     @OneToMany(mappedBy = "firma")
@@ -43,11 +43,13 @@ public class Firma {
     @OneToMany(mappedBy = "firma")
     private List<Hareket> hareket;
 
+    @Column(name = "Aktif")
+    private Boolean aktif;
     public Firma() {
     }
 
-    public Firma(Long id, Integer peronNo, String firmaAdi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, List<Arac> araclar, List<Hareket> hareket) {
-        this.id = id;
+    public Firma(Long FirmaId, Integer peronNo, String firmaAdi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, List<Arac> araclar, List<Hareket> hareket, Boolean aktif) {
+        this.FirmaId = FirmaId;
         this.peronNo = peronNo;
         this.firmaAdi = firmaAdi;
         this.yetkiliAdi = yetkiliAdi;
@@ -58,14 +60,15 @@ public class Firma {
         this.aciklama = aciklama;
         this.araclar = araclar;
         this.hareket = hareket;
+        this.aktif = aktif;
     }
 
-    public Long getId() {
-        return id;
+    public Long getFirmaId() {
+        return FirmaId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setFirmaId(Long FirmaId) {
+        this.FirmaId = FirmaId;
     }
 
     public Integer getPeronNo() {
@@ -146,5 +149,13 @@ public class Firma {
 
     public void setHareket(List<Hareket> hareket) {
         this.hareket = hareket;
+    }
+
+    public Boolean getAktif() {
+        return aktif;
+    }
+
+    public void setAktif(Boolean aktif) {
+        this.aktif = aktif;
     }
 }

@@ -1,7 +1,8 @@
 package com.Abb.business.interfaces;
 
+import com.Abb.business.requests.CreateTarifeRequest;
+import com.Abb.business.responses.GetAllTarifeResponse;
 import com.Abb.entities.Tarife;
-import com.Abb.entities.dto.TarifeDto;
 import com.Abb.utilities.results.DataResult;
 import com.Abb.utilities.results.Result;
 
@@ -9,23 +10,23 @@ import java.util.List;
 import java.util.Map;
 
 public interface TarifeService {
-    DataResult<TarifeDto> insert(TarifeDto entity) throws Exception;
+    DataResult<CreateTarifeRequest> insert(CreateTarifeRequest entity) throws Exception;
 
-    DataResult<TarifeDto> update(TarifeDto entity) throws Exception;
+    DataResult<CreateTarifeRequest> update(CreateTarifeRequest entity) throws Exception;
 
     Result update(String command) throws Exception;
 
-    DataResult<TarifeDto> find(Object id) throws Exception;
+    DataResult<GetAllTarifeResponse> find(Object id) throws Exception;
 
-    DataResult<TarifeDto> find(String command) throws Exception;
+    DataResult<GetAllTarifeResponse> find(String command) throws Exception;
 
     DataResult<Object[]> findObjectArray(String command) throws Exception;
 
     DataResult<Object> executeQuery(String command) throws Exception;
 
-    DataResult<List<TarifeDto>> selectAll() throws Exception;
+    DataResult<List<GetAllTarifeResponse>> selectAll() throws Exception;
 
-    DataResult<List<TarifeDto>> selectAll(String command) throws Exception;
+    DataResult<List<GetAllTarifeResponse>> selectAll(String command) throws Exception;
 
     DataResult<List<Object[]>> selectAllByObject(String command) throws Exception;
 

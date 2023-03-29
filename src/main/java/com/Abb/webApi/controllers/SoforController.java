@@ -1,13 +1,10 @@
 package com.Abb.webApi.controllers;
 
 import com.Abb.business.interfaces.SoforService;
-import com.Abb.entities.dto.SoforDto;
+import com.Abb.business.requests.CreateSoforRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("abb/sofor")
@@ -20,8 +17,13 @@ public class SoforController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> add(@RequestBody SoforDto soforDto) throws Exception {
-        return ResponseEntity.ok(this.soforService.insert(soforDto));
+    public ResponseEntity<Object> add(@RequestBody CreateSoforRequest createSoforRequest) throws Exception {
+        return ResponseEntity.ok(this.soforService.insert(createSoforRequest));
+    }
+
+    @GetMapping
+    public ResponseEntity<Object> getall() throws Exception {
+        return ResponseEntity.ok(this.soforService.selectAll());
     }
 
 }

@@ -1,10 +1,12 @@
 package com.Abb.business;
 
 import com.Abb.business.interfaces.TarifeService;
+import com.Abb.business.requests.CreateFirmaRequest;
+import com.Abb.business.requests.CreateTarifeRequest;
+import com.Abb.business.responses.GetAllHareketResponse;
+import com.Abb.business.responses.GetAllTarifeResponse;
 import com.Abb.dataAccess.TarifeRepository;
 import com.Abb.entities.Tarife;
-import com.Abb.entities.dto.HareketDto;
-import com.Abb.entities.dto.TarifeDto;
 import com.Abb.utilities.mappers.ModelMapperService;
 import com.Abb.utilities.results.DataResult;
 import com.Abb.utilities.results.Result;
@@ -28,14 +30,14 @@ public class TarifeManager implements TarifeService {
 
 
     @Override
-    public DataResult<TarifeDto> insert(TarifeDto entity) throws Exception {
+    public DataResult<CreateTarifeRequest> insert(CreateTarifeRequest entity) throws Exception {
         Tarife tarife= this.modelMapperService.forRequest().map(entity,Tarife.class);
         this.tarifeRepository.save(tarife);
-        return new SuccessDataResult<TarifeDto>(entity);
+        return new SuccessDataResult<CreateTarifeRequest>(entity);
     }
 
     @Override
-    public DataResult<TarifeDto> update(TarifeDto entity) throws Exception {
+    public DataResult<CreateTarifeRequest> update(CreateTarifeRequest entity) throws Exception {
         return null;
     }
 
@@ -45,12 +47,12 @@ public class TarifeManager implements TarifeService {
     }
 
     @Override
-    public DataResult<TarifeDto> find(Object id) throws Exception {
+    public DataResult<GetAllTarifeResponse> find(Object id) throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<TarifeDto> find(String command) throws Exception {
+    public DataResult<GetAllTarifeResponse> find(String command) throws Exception {
         return null;
     }
 
@@ -65,12 +67,12 @@ public class TarifeManager implements TarifeService {
     }
 
     @Override
-    public DataResult<List<TarifeDto>> selectAll() throws Exception {
+    public DataResult<List<GetAllTarifeResponse>> selectAll() throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<List<TarifeDto>> selectAll(String command) throws Exception {
+    public DataResult<List<GetAllTarifeResponse>> selectAll(String command) throws Exception {
         return null;
     }
 

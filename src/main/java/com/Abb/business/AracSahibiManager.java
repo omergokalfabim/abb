@@ -1,9 +1,10 @@
 package com.Abb.business;
 
 import com.Abb.business.interfaces.AracSahibiService;
+import com.Abb.business.requests.CreateAracSahibiRequest;
+import com.Abb.business.responses.GetAllAracSahibiResponse;
 import com.Abb.dataAccess.AracSahibiRepository;
 import com.Abb.entities.AracSahibi;
-import com.Abb.entities.dto.AracSahibiDto;
 import com.Abb.utilities.mappers.ModelMapperService;
 import com.Abb.utilities.results.DataResult;
 import com.Abb.utilities.results.Result;
@@ -26,14 +27,14 @@ public class AracSahibiManager implements AracSahibiService {
     }
 
     @Override
-    public DataResult<AracSahibiDto> insert(AracSahibiDto entity) throws Exception {
+    public DataResult<CreateAracSahibiRequest> insert(CreateAracSahibiRequest entity) throws Exception {
         AracSahibi aracSahibi=this._modelMapperServie.forRequest().map(entity, com.Abb.entities.AracSahibi.class);
         this._aracSahibiRepository.save(aracSahibi);
-        return new SuccessDataResult<AracSahibiDto>(entity);
+        return new SuccessDataResult<CreateAracSahibiRequest>(entity);
     }
 
     @Override
-    public DataResult<AracSahibiDto> update(AracSahibiDto entity) throws Exception {
+    public DataResult<CreateAracSahibiRequest> update(CreateAracSahibiRequest entity) throws Exception {
         return null;
     }
 
@@ -43,12 +44,12 @@ public class AracSahibiManager implements AracSahibiService {
     }
 
     @Override
-    public DataResult<AracSahibiDto> find(Object id) throws Exception {
+    public DataResult<GetAllAracSahibiResponse> find(Object id) throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<AracSahibiDto> find(String command) throws Exception {
+    public DataResult<GetAllAracSahibiResponse> find(String command) throws Exception {
         return null;
     }
 
@@ -63,12 +64,12 @@ public class AracSahibiManager implements AracSahibiService {
     }
 
     @Override
-    public DataResult<List<AracSahibiDto>> selectAll() throws Exception {
+    public DataResult<List<GetAllAracSahibiResponse>> selectAll() throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<List<AracSahibiDto>> selectAll(String command) throws Exception {
+    public DataResult<List<GetAllAracSahibiResponse>> selectAll(String command) throws Exception {
         return null;
     }
 
@@ -83,7 +84,7 @@ public class AracSahibiManager implements AracSahibiService {
     }
 
     @Override
-    public Result deleteByEntity(AracSahibiDto entity) throws Exception {
+    public Result deleteByEntity(CreateAracSahibiRequest entity) throws Exception {
         return null;
     }
 

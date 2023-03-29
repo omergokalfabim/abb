@@ -1,21 +1,19 @@
 package com.Abb.business;
 
 import com.Abb.business.interfaces.FirmaService;
+import com.Abb.business.requests.CreateFirmaRequest;
+import com.Abb.business.responses.GetAllFirmaResponse;
 import com.Abb.dataAccess.FirmaRepository;
 import com.Abb.entities.Firma;
-import com.Abb.entities.dto.FirmaDto;
-import com.Abb.entities.dto.HareketDto;
 import com.Abb.utilities.mappers.ModelMapperService;
 import com.Abb.utilities.results.DataResult;
 import com.Abb.utilities.results.Result;
 import com.Abb.utilities.results.SuccessDataResult;
-import com.Abb.utilities.results.SuccessResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class FirmaManager implements FirmaService {
@@ -30,14 +28,14 @@ public class FirmaManager implements FirmaService {
 
 
     @Override
-    public DataResult<FirmaDto> insert(FirmaDto entity) throws Exception {
+    public DataResult<CreateFirmaRequest> insert(CreateFirmaRequest entity) throws Exception {
         Firma firma= this._modelMapperService.forRequest().map(entity,Firma.class);
         this._firmaRepository.save(firma);
-        return new SuccessDataResult<FirmaDto>(entity);
+        return new SuccessDataResult<CreateFirmaRequest>(entity);
     }
 
     @Override
-    public DataResult<FirmaDto> update(FirmaDto entity) throws Exception {
+    public DataResult<CreateFirmaRequest> update(CreateFirmaRequest entity) throws Exception {
         return null;
     }
 
@@ -47,12 +45,12 @@ public class FirmaManager implements FirmaService {
     }
 
     @Override
-    public DataResult<FirmaDto> find(Object id) throws Exception {
+    public DataResult<GetAllFirmaResponse> find(Object id) throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<FirmaDto> find(String command) throws Exception {
+    public DataResult<GetAllFirmaResponse> find(String command) throws Exception {
         return null;
     }
 
@@ -67,12 +65,12 @@ public class FirmaManager implements FirmaService {
     }
 
     @Override
-    public DataResult<List<FirmaDto>> selectAll() throws Exception {
+    public DataResult<List<GetAllFirmaResponse>> selectAll() throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<List<FirmaDto>> selectAll(String command) throws Exception {
+    public DataResult<List<GetAllFirmaResponse>> selectAll(String command) throws Exception {
         return null;
     }
 

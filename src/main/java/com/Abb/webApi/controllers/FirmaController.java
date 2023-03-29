@@ -1,8 +1,7 @@
 package com.Abb.webApi.controllers;
 
 import com.Abb.business.interfaces.FirmaService;
-import com.Abb.entities.Firma;
-import com.Abb.entities.dto.FirmaDto;
+import com.Abb.business.requests.CreateFirmaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +17,8 @@ public class FirmaController {
     }
 
     @PostMapping()
-    public ResponseEntity<Object> add(@RequestBody FirmaDto firmaDto) throws Exception{
-        return ResponseEntity.ok(this.firmaService.insert(firmaDto));
+    public ResponseEntity<Object> add(@RequestBody CreateFirmaRequest createFirmaRequest) throws Exception{
+        return ResponseEntity.ok(this.firmaService.insert(createFirmaRequest));
     }
 
     @DeleteMapping("/{id}")
@@ -38,8 +37,8 @@ public class FirmaController {
     }
 
     @PutMapping()
-    public ResponseEntity<Object> update(@RequestBody FirmaDto FirmaDto) throws Exception{
-        return ResponseEntity.ok(this.firmaService.update(FirmaDto));
+    public ResponseEntity<Object> update(@RequestBody CreateFirmaRequest createFirmaRequest) throws Exception{
+        return ResponseEntity.ok(this.firmaService.update(createFirmaRequest));
     }
 
 }
