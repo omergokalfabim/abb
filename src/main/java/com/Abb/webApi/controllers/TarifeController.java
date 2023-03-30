@@ -1,24 +1,47 @@
 package com.Abb.webApi.controllers;
 
 import com.Abb.business.interfaces.TarifeService;
-import com.Abb.business.requests.CreateTarifeRequest;
+import com.Abb.business.requests.TarifeRequest;
+import com.Abb.entities.Tarife;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/abb/tarife")
 public class TarifeController {
-   TarifeService tarifeService;
+   TarifeService _tarifeService;
 
     @Autowired
     public TarifeController(TarifeService tarifeService) {
-        this.tarifeService = tarifeService;
+        this._tarifeService = tarifeService;
     }
     @PostMapping()
-    public void add(@RequestBody CreateTarifeRequest createTarifeRequest) throws Exception {
-        this.tarifeService.insert(createTarifeRequest);
+    public ResponseEntity<Object> add(@RequestBody TarifeRequest tarifeRequest) throws Exception {
+         return ResponseEntity.ok(this._tarifeService.insert(tarifeRequest));
+    }
+    @DeleteMapping
+    public ResponseEntity<Object> delete(@RequestBody Tarife tarife)throws Exception{
+        return ResponseEntity.ok(this._tarifeService.deleteByEntity(tarife));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteById(@PathVariable Long id) throws  Exception{
+        return ResponseEntity.ok(this._tarifeService.deleteById(id));
+    }
+
+    @PutMapping
+    public ResponseEntity<Object> update(@RequestBody TarifeRequest tarifeRequest)throws Exception{
+        return ResponseEntity.ok(this._tarifeService.update(tarifeRequest));
+    }
+
+    @GetMapping
+    public ResponseEntity<Object> selectAll() throws Exception{
+        return ResponseEntity.ok(this._tarifeService.selectAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> findById(@PathVariable Long id) throws Exception{
+        return ResponseEntity.ok(this._tarifeService.findById(id));
     }
 }

@@ -1,14 +1,14 @@
 package com.Abb.business.requests;
 
-public class CreateTarifeRequest {
+public class TarifeRequest {
 
     private String tarifeAdi;
     private Double tarifeUcreti;
 
-    public CreateTarifeRequest() {
+    public TarifeRequest() {
     }
 
-    public CreateTarifeRequest(String tarifeAdi, Double tarifeUcreti) {
+    public TarifeRequest(String tarifeAdi, Double tarifeUcreti) {
         this.tarifeAdi = tarifeAdi;
         this.tarifeUcreti = tarifeUcreti;
     }

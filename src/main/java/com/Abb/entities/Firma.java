@@ -38,18 +38,17 @@ public class Firma {
     private String aciklama;
 
     @OneToMany(mappedBy = "firma")
-    private List<Arac> araclar;
-
-    @OneToMany(mappedBy = "firma")
     private List<Hareket> hareket;
 
     @Column(name = "Aktif")
     private Boolean aktif;
+    @OneToMany(mappedBy = "firma")
+    private List<AracMapFirma> aracMapFirmaList;
     public Firma() {
     }
 
-    public Firma(Long FirmaId, Integer peronNo, String firmaAdi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, List<Arac> araclar, List<Hareket> hareket, Boolean aktif) {
-        this.FirmaId = FirmaId;
+    public Firma(Long firmaId, Integer peronNo, String firmaAdi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, List<Hareket> hareket, Boolean aktif, List<AracMapFirma> aracMapFirmaList) {
+        FirmaId = firmaId;
         this.peronNo = peronNo;
         this.firmaAdi = firmaAdi;
         this.yetkiliAdi = yetkiliAdi;
@@ -58,17 +57,17 @@ public class Firma {
         this.dahiliTelefonNo = dahiliTelefonNo;
         this.gsmNo = gsmNo;
         this.aciklama = aciklama;
-        this.araclar = araclar;
         this.hareket = hareket;
         this.aktif = aktif;
+        this.aracMapFirmaList = aracMapFirmaList;
     }
 
     public Long getFirmaId() {
         return FirmaId;
     }
 
-    public void setFirmaId(Long FirmaId) {
-        this.FirmaId = FirmaId;
+    public void setFirmaId(Long firmaId) {
+        FirmaId = firmaId;
     }
 
     public Integer getPeronNo() {
@@ -135,14 +134,6 @@ public class Firma {
         this.aciklama = aciklama;
     }
 
-    public List<Arac> getAraclar() {
-        return araclar;
-    }
-
-    public void setAraclar(List<Arac> araclar) {
-        this.araclar = araclar;
-    }
-
     public List<Hareket> getHareket() {
         return hareket;
     }
@@ -157,5 +148,13 @@ public class Firma {
 
     public void setAktif(Boolean aktif) {
         this.aktif = aktif;
+    }
+
+    public List<AracMapFirma> getAracMapFirmaList() {
+        return aracMapFirmaList;
+    }
+
+    public void setAracMapFirmaList(List<AracMapFirma> aracMapFirmaList) {
+        this.aracMapFirmaList = aracMapFirmaList;
     }
 }

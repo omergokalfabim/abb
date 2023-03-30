@@ -1,6 +1,6 @@
 package com.Abb.business.responses;
 
-public class GetAllHareketResponse {
+public class HareketResponse {
     private String saat;
     private String tarih;
     private String aracPlaka;
@@ -9,10 +9,10 @@ public class GetAllHareketResponse {
     private Double tarifeUcreti;
     private String aciklama;
 
-    public GetAllHareketResponse() {
+    public HareketResponse() {
     }
 
-    public GetAllHareketResponse(String saat, String tarih, String aracPlaka, String firmaAdi, String tarifeAdi, Double tarifeUcreti, String aciklama) {
+    public HareketResponse(String saat, String tarih, String aracPlaka, String firmaAdi, String tarifeAdi, Double tarifeUcreti, String aciklama) {
         this.saat = saat;
         this.tarih = tarih;
         this.aracPlaka = aracPlaka;

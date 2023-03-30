@@ -13,10 +13,6 @@ public class Arac {
     @Column(name = "AracId", nullable = false, unique = true)
     private Long aracId;
 
-    @ManyToOne(targetEntity = Firma.class)
-    @JoinColumn(name = "FirmaId", foreignKey = @ForeignKey(name = "FK_ARACLAR_FIRMALAR"))
-    private Firma firma;
-
     @Column(name = "Plaka")
     private String plaka;
 
@@ -35,18 +31,18 @@ public class Arac {
     private Set<Hareket> hareket;
 
     @OneToMany(mappedBy = "arac")
-    private List<SoforMapArac> soforMapArac;
+    private List<AracMapFirma> aracMapFirmaList;
     public Arac() {
     }
 
-    public Arac(Long aracId, Firma firma, String plaka, Tarife tarife, AracSahibi aracSahibi, String aciklama, Set<Hareket> hareket) {
+    public Arac(Long aracId, String plaka, Tarife tarife, AracSahibi aracSahibi, String aciklama, Set<Hareket> hareket, List<AracMapFirma> aracMapFirmaList) {
         this.aracId = aracId;
-        this.firma = firma;
         this.plaka = plaka;
         this.tarife = tarife;
         this.aracSahibi = aracSahibi;
         this.aciklama = aciklama;
         this.hareket = hareket;
+        this.aracMapFirmaList = aracMapFirmaList;
     }
 
     public Long getAracId() {
@@ -55,14 +51,6 @@ public class Arac {
 
     public void setAracId(Long aracId) {
         this.aracId = aracId;
-    }
-
-    public Firma getFirma() {
-        return firma;
-    }
-
-    public void setFirma(Firma firma) {
-        this.firma = firma;
     }
 
     public String getPlaka() {
@@ -89,7 +77,6 @@ public class Arac {
         this.aracSahibi = aracSahibi;
     }
 
-
     public String getAciklama() {
         return aciklama;
     }
@@ -104,5 +91,13 @@ public class Arac {
 
     public void setHareket(Set<Hareket> hareket) {
         this.hareket = hareket;
+    }
+
+    public List<AracMapFirma> getAracMapFirmaList() {
+        return aracMapFirmaList;
+    }
+
+    public void setAracMapFirmaList(List<AracMapFirma> aracMapFirmaList) {
+        this.aracMapFirmaList = aracMapFirmaList;
     }
 }

@@ -1,23 +1,31 @@
 package com.Abb.business.requests;
 
-public class CreateAracRequest {
+public class AracRequest {
+    private Long aracId;
     private String aciklama;
     private String plaka;
-    private Long soforId;
     private Long aracSahibiId;
     private Long firmaId;
     private Long tarifeId;
 
-    public CreateAracRequest() {
+    public AracRequest() {
     }
 
-    public CreateAracRequest(String aciklama, String plaka, Long soforId, Long aracSahibiId, Long firmaId, Long tarifeId) {
+    public AracRequest(Long aracId, String aciklama, String plaka,  Long aracSahibiId, Long firmaId, Long tarifeId) {
+        this.aracId = aracId;
         this.aciklama = aciklama;
         this.plaka = plaka;
-        this.soforId = soforId;
         this.aracSahibiId = aracSahibiId;
         this.firmaId = firmaId;
         this.tarifeId = tarifeId;
+    }
+
+    public Long getAracId() {
+        return aracId;
+    }
+
+    public void setAracId(Long aracId) {
+        this.aracId = aracId;
     }
 
     public String getAciklama() {
@@ -34,14 +42,6 @@ public class CreateAracRequest {
 
     public void setPlaka(String plaka) {
         this.plaka = plaka;
-    }
-
-    public Long getSoforId() {
-        return soforId;
-    }
-
-    public void setSoforId(Long soforId) {
-        this.soforId = soforId;
     }
 
     public Long getAracSahibiId() {

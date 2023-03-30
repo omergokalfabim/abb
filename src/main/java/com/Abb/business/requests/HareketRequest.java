@@ -1,6 +1,6 @@
 package com.Abb.business.requests;
 
-public class CreateHareketRequest {
+public class HareketRequest {
     private String saat;
     private String tarih;
     private String aciklama;
@@ -8,10 +8,10 @@ public class CreateHareketRequest {
     private Long firmaId;
     private Long tarifeId;
 
-    public CreateHareketRequest() {
+    public HareketRequest() {
     }
 
-    public CreateHareketRequest(String saat, String tarih, String aciklama, Long aracId, Long firmaId, Long tarifeId) {
+    public HareketRequest(String saat, String tarih, String aciklama, Long aracId, Long firmaId, Long tarifeId) {
         this.saat = saat;
         this.tarih = tarih;
         this.aciklama = aciklama;

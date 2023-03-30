@@ -1,16 +1,16 @@
 package com.Abb.business.requests;
 
-public class CreateAracSahibiRequest {
+public class AracSahibiRequest {
     private String adi;
     private String soyadi;
     private String kimlikNo;
     private String telefonNo;
     private boolean isSahip;
 
-    public CreateAracSahibiRequest() {
+    public AracSahibiRequest() {
     }
 
-    public CreateAracSahibiRequest(String adi, String soyadi, String kimlikNo, String telefonNo, boolean isSahip) {
+    public AracSahibiRequest(String adi, String soyadi, String kimlikNo, String telefonNo, boolean isSahip) {
         this.adi = adi;
         this.soyadi = soyadi;
         this.kimlikNo = kimlikNo;

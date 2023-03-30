@@ -1,8 +1,8 @@
-package com.Abb.business;
+package com.Abb.business.services;
 
 import com.Abb.business.interfaces.FirmaService;
-import com.Abb.business.requests.CreateFirmaRequest;
-import com.Abb.business.responses.GetAllFirmaResponse;
+import com.Abb.business.requests.FirmaRequest;
+import com.Abb.business.responses.FirmaResponse;
 import com.Abb.dataAccess.FirmaRepository;
 import com.Abb.entities.Firma;
 import com.Abb.utilities.mappers.ModelMapperService;
@@ -28,14 +28,14 @@ public class FirmaManager implements FirmaService {
 
 
     @Override
-    public DataResult<CreateFirmaRequest> insert(CreateFirmaRequest entity) throws Exception {
+    public DataResult<FirmaRequest> insert(FirmaRequest entity) throws Exception {
         Firma firma= this._modelMapperService.forRequest().map(entity,Firma.class);
         this._firmaRepository.save(firma);
-        return new SuccessDataResult<CreateFirmaRequest>(entity);
+        return new SuccessDataResult<FirmaRequest>(entity);
     }
 
     @Override
-    public DataResult<CreateFirmaRequest> update(CreateFirmaRequest entity) throws Exception {
+    public DataResult<FirmaRequest> update(FirmaRequest entity) throws Exception {
         return null;
     }
 
@@ -45,12 +45,12 @@ public class FirmaManager implements FirmaService {
     }
 
     @Override
-    public DataResult<GetAllFirmaResponse> find(Object id) throws Exception {
+    public DataResult<FirmaResponse> find(Object id) throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<GetAllFirmaResponse> find(String command) throws Exception {
+    public DataResult<FirmaResponse> find(String command) throws Exception {
         return null;
     }
 
@@ -65,12 +65,12 @@ public class FirmaManager implements FirmaService {
     }
 
     @Override
-    public DataResult<List<GetAllFirmaResponse>> selectAll() throws Exception {
+    public DataResult<List<FirmaResponse>> selectAll() throws Exception {
         return null;
     }
 
     @Override
-    public DataResult<List<GetAllFirmaResponse>> selectAll(String command) throws Exception {
+    public DataResult<List<FirmaResponse>> selectAll(String command) throws Exception {
         return null;
     }
 

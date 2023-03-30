@@ -1,4 +1,4 @@
 package com.Abb.business.responses;
 
-public class GetAllFirmaResponse {
+public class TarifeResponse {
 }

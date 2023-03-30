@@ -1,6 +1,7 @@
 package com.Abb.business.requests;
 
-public class CreateFirmaRequest {
+public class FirmaRequest {
+    private Long firmaId;
     private int peronNo;
     private String adi;
     private String yetkiliAdi;
@@ -11,10 +12,11 @@ public class CreateFirmaRequest {
     private String aciklama;
     private Boolean aktifPasif;
 
-    public CreateFirmaRequest() {
+    public FirmaRequest() {
     }
 
-    public CreateFirmaRequest(int peronNo, String adi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, Boolean aktifPasif) {
+    public FirmaRequest(Long firmaId, int peronNo, String adi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, Boolean aktifPasif) {
+        this.firmaId = firmaId;
         this.peronNo = peronNo;
         this.adi = adi;
         this.yetkiliAdi = yetkiliAdi;
@@ -24,6 +26,14 @@ public class CreateFirmaRequest {
         this.gsmNo = gsmNo;
         this.aciklama = aciklama;
         this.aktifPasif = aktifPasif;
+    }
+
+    public Long getFirmaId() {
+        return firmaId;
+    }
+
+    public void setFirmaId(Long firmaId) {
+        this.firmaId = firmaId;
     }
 
     public int getPeronNo() {

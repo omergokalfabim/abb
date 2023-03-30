@@ -1,4 +1,4 @@
 package com.Abb.business.responses;
 
-public class GetAllAracResponse {
+public class AracSahibiResponse {
 }
