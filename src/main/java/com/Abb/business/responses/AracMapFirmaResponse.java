@@ -4,8 +4,8 @@ import java.sql.Timestamp;
 
 public class AracMapFirmaResponse {
     private Long aracMapFirmaId;
-    private String plaka;
-    private String firmaAdi;
+    private String aracPlaka;
+    private String firmaFirmairmaAdi;
     private Short kullaniciKod;
     private Timestamp kayitTarihi;
     private Boolean aktif;
@@ -13,10 +13,10 @@ public class AracMapFirmaResponse {
     public AracMapFirmaResponse() {
     }
 
-    public AracMapFirmaResponse(Long aracMapFirmaId, String plaka, String firmaAdi, Short kullaniciKod, Timestamp kayitTarihi, Boolean aktif) {
+    public AracMapFirmaResponse(Long aracMapFirmaId, String aracPlaka, String firmaFirmairmaAdi, Short kullaniciKod, Timestamp kayitTarihi, Boolean aktif) {
         this.aracMapFirmaId = aracMapFirmaId;
-        this.plaka = plaka;
-        this.firmaAdi = firmaAdi;
+        this.aracPlaka = aracPlaka;
+        this.firmaFirmairmaAdi = firmaFirmairmaAdi;
         this.kullaniciKod = kullaniciKod;
         this.kayitTarihi = kayitTarihi;
         this.aktif = aktif;
@@ -30,20 +30,20 @@ public class AracMapFirmaResponse {
         this.aracMapFirmaId = aracMapFirmaId;
     }
 
-    public String getPlaka() {
-        return plaka;
+    public String getAracPlaka() {
+        return aracPlaka;
     }
 
-    public void setPlaka(String plaka) {
-        this.plaka = plaka;
+    public void setAracPlaka(String aracPlaka) {
+        this.aracPlaka = aracPlaka;
     }
 
-    public String getFirmaAdi() {
-        return firmaAdi;
+    public String getFirmaFirmaAdi() {
+        return firmaFirmairmaAdi;
     }
 
-    public void setFirmaAdi(String firmaAdi) {
-        this.firmaAdi = firmaAdi;
+    public void setFirmaFirmaAdi(String firmaAdi) {
+        this.firmaFirmairmaAdi = firmaAdi;
     }
 
     public Short getKullaniciKod() {

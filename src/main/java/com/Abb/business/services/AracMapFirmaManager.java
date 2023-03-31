@@ -66,22 +66,6 @@ public class AracMapFirmaManager implements AracMapFirmaService {
 
         List<AracMapFirma> aracMapFirmaList= this._aracMapFirmaRepository.findAll();
         List<AracMapFirmaResponse> aracMapFirmaResponseList=aracMapFirmaList.stream().map(aracMapFirma -> this._modelMapperService.forResponse().map(aracMapFirma, AracMapFirmaResponse.class)).collect(Collectors.toList());
-//        List<AracMapFirmaResponse> aracMapFirmaResponseList= new ArrayList<>();
-//        AracMapFirmaResponse aracMapFirmaResponse;
-//        for (AracMapFirma aracMapFirma:aracMapFirmaList){
-//            aracMapFirmaResponse=new AracMapFirmaResponse();
-//
-//            aracMapFirmaResponse.setAracMapFirmaId(aracMapFirma.getAracMapFirmaId());
-//            aracMapFirmaResponse.setFirmaAdi(aracMapFirma.getFirma().getFirmaAdi());
-//            aracMapFirmaResponse.setPlaka(aracMapFirma.getArac().getPlaka());
-//            aracMapFirmaResponse.setKullaniciKod(aracMapFirma.getKullaniciKod());
-//            aracMapFirmaResponse.setKayitTarihi(aracMapFirma.getKayitTarihi());
-//            aracMapFirmaResponse.setAktif(aracMapFirma.getAktif());
-//
-//
-//            aracMapFirmaResponseList.add(aracMapFirmaResponse);
-//
-//        }
         return new SuccessDataResult<>(aracMapFirmaResponseList,Message.aracMapFirmasListed);
     }
 
