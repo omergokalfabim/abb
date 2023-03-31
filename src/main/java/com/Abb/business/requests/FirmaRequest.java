@@ -12,10 +12,12 @@ public class FirmaRequest {
     private String aciklama;
     private Boolean aktifPasif;
 
+    private Short kullaniciKod;
+    private Boolean kayitTarihi;
     public FirmaRequest() {
     }
 
-    public FirmaRequest(Long firmaId, int peronNo, String adi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, Boolean aktifPasif) {
+    public FirmaRequest(Long firmaId, int peronNo, String adi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, Boolean aktifPasif, Short kullaniciKod, Boolean kayitTarihi) {
         this.firmaId = firmaId;
         this.peronNo = peronNo;
         this.adi = adi;
@@ -26,6 +28,8 @@ public class FirmaRequest {
         this.gsmNo = gsmNo;
         this.aciklama = aciklama;
         this.aktifPasif = aktifPasif;
+        this.kullaniciKod = kullaniciKod;
+        this.kayitTarihi = kayitTarihi;
     }
 
     public Long getFirmaId() {
@@ -106,5 +110,21 @@ public class FirmaRequest {
 
     public void setAktifPasif(Boolean aktifPasif) {
         this.aktifPasif = aktifPasif;
+    }
+
+    public Short getKullaniciKod() {
+        return kullaniciKod;
+    }
+
+    public void setKullaniciKod(Short kullaniciKod) {
+        this.kullaniciKod = kullaniciKod;
+    }
+
+    public Boolean getKayitTarihi() {
+        return kayitTarihi;
+    }
+
+    public void setKayitTarihi(Boolean kayitTarihi) {
+        this.kayitTarihi = kayitTarihi;
     }
 }

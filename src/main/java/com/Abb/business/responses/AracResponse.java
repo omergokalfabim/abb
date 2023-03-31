@@ -1,5 +1,7 @@
 package com.Abb.business.responses;
 
+import java.sql.Timestamp;
+
 public class AracResponse {
     private Long aracId;
     private Integer peronNo;
@@ -11,10 +13,12 @@ public class AracResponse {
     private String aciklama;
     private String tarifeAdi;
     private String tarifeUcreti;
+    private Short kullaniciKod;
+    private Timestamp kayitTarihi;
     public AracResponse() {
     }
 
-    public AracResponse(Long aracId, Integer peronNo, String plaka, String firmaAdi, String aracSahibiAdi, String aracSahibiSoyadi, String aracSahibiTelefon, String aciklama, String tarifeAdi, String tarifeUcreti) {
+    public AracResponse(Long aracId, Integer peronNo, String plaka, String firmaAdi, String aracSahibiAdi, String aracSahibiSoyadi, String aracSahibiTelefon, String aciklama, String tarifeAdi, String tarifeUcreti, Short kullaniciKod, Timestamp kayitTarihi) {
         this.aracId = aracId;
         this.peronNo = peronNo;
         this.plaka = plaka;
@@ -25,6 +29,8 @@ public class AracResponse {
         this.aciklama = aciklama;
         this.tarifeAdi = tarifeAdi;
         this.tarifeUcreti = tarifeUcreti;
+        this.kullaniciKod = kullaniciKod;
+        this.kayitTarihi = kayitTarihi;
     }
 
     public Long getAracId() {
@@ -105,5 +111,21 @@ public class AracResponse {
 
     public void setTarifeUcreti(String tarifeUcreti) {
         this.tarifeUcreti = tarifeUcreti;
+    }
+
+    public Short getKullaniciKod() {
+        return kullaniciKod;
+    }
+
+    public void setKullaniciKod(Short kullaniciKod) {
+        this.kullaniciKod = kullaniciKod;
+    }
+
+    public Timestamp getKayitTarihi() {
+        return kayitTarihi;
+    }
+
+    public void setKayitTarihi(Timestamp kayitTarihi) {
+        this.kayitTarihi = kayitTarihi;
     }
 }

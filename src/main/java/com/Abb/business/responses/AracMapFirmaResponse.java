@@ -4,8 +4,8 @@ import java.sql.Timestamp;
 
 public class AracMapFirmaResponse {
     private Long aracMapFirmaId;
-    private Long plaka;
-    private Long firmaAdi;
+    private String plaka;
+    private String firmaAdi;
     private Short kullaniciKod;
     private Timestamp kayitTarihi;
     private Boolean aktif;
@@ -13,7 +13,7 @@ public class AracMapFirmaResponse {
     public AracMapFirmaResponse() {
     }
 
-    public AracMapFirmaResponse(Long aracMapFirmaId, Long plaka, Long firmaAdi, Short kullaniciKod, Timestamp kayitTarihi, Boolean aktif) {
+    public AracMapFirmaResponse(Long aracMapFirmaId, String plaka, String firmaAdi, Short kullaniciKod, Timestamp kayitTarihi, Boolean aktif) {
         this.aracMapFirmaId = aracMapFirmaId;
         this.plaka = plaka;
         this.firmaAdi = firmaAdi;
@@ -30,19 +30,19 @@ public class AracMapFirmaResponse {
         this.aracMapFirmaId = aracMapFirmaId;
     }
 
-    public Long getPlaka() {
+    public String getPlaka() {
         return plaka;
     }
 
-    public void setPlaka(Long plaka) {
+    public void setPlaka(String plaka) {
         this.plaka = plaka;
     }
 
-    public Long getFirmaAdi() {
+    public String getFirmaAdi() {
         return firmaAdi;
     }
 
-    public void setFirmaAdi(Long firmaAdi) {
+    public void setFirmaAdi(String firmaAdi) {
         this.firmaAdi = firmaAdi;
     }
 

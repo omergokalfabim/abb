@@ -1,5 +1,7 @@
 package com.Abb.business.requests;
 
+import java.sql.Timestamp;
+
 public class AracRequest {
     private Long aracId;
     private String aciklama;
@@ -8,16 +10,21 @@ public class AracRequest {
     private Long firmaId;
     private Long tarifeId;
 
+    private Short kullaniciKod;
+    private Timestamp kayitTarihi;
+
     public AracRequest() {
     }
 
-    public AracRequest(Long aracId, String aciklama, String plaka,  Long aracSahibiId, Long firmaId, Long tarifeId) {
+    public AracRequest(Long aracId, String aciklama, String plaka, Long aracSahibiId, Long firmaId, Long tarifeId, Short kullaniciKod, Timestamp kayitTarihi) {
         this.aracId = aracId;
         this.aciklama = aciklama;
         this.plaka = plaka;
         this.aracSahibiId = aracSahibiId;
         this.firmaId = firmaId;
         this.tarifeId = tarifeId;
+        this.kullaniciKod = kullaniciKod;
+        this.kayitTarihi = kayitTarihi;
     }
 
     public Long getAracId() {
@@ -66,5 +73,21 @@ public class AracRequest {
 
     public void setTarifeId(Long tarifeId) {
         this.tarifeId = tarifeId;
+    }
+
+    public Short getKullaniciKod() {
+        return kullaniciKod;
+    }
+
+    public void setKullaniciKod(Short kullaniciKod) {
+        this.kullaniciKod = kullaniciKod;
+    }
+
+    public Timestamp getKayitTarihi() {
+        return kayitTarihi;
+    }
+
+    public void setKayitTarihi(Timestamp kayitTarihi) {
+        this.kayitTarihi = kayitTarihi;
     }
 }

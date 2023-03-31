@@ -16,25 +16,29 @@ public class AracController {
         this._aracService = _aracService;
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<Object> insert(@RequestBody AracRequest aracRequest)throws Exception{
         return ResponseEntity.ok(this._aracService.insert(aracRequest));
     }
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<Object> update(@RequestBody AracRequest aracRequest)throws Exception{
         return ResponseEntity.ok(this._aracService.update(aracRequest));
     }
 
-    @GetMapping
+    @GetMapping("/selectall")
     public ResponseEntity<Object> selectAll() throws Exception {
         return ResponseEntity.ok(this._aracService.selectAll());
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<Object> find(@PathVariable Long id)throws Exception{
+    @GetMapping("/findbyid/{id}")
+    public ResponseEntity<Object> findById(@PathVariable Long id)throws Exception{
         return ResponseEntity.ok(this._aracService.findById(id));
     }
-    @DeleteMapping
+    @DeleteMapping("/delete")
     public ResponseEntity<Object> deleteByEntity(@RequestBody AracRequest aracRequest) throws Exception {
         return ResponseEntity.ok(this._aracService.deleteByEntity(aracRequest));
+    }
+    @DeleteMapping("/deletebyid/{id}")
+    public ResponseEntity<Object> deleteById(@PathVariable Long id)throws Exception{
+        return ResponseEntity.ok(this._aracService.deleteById(id));
     }
 }

@@ -2,6 +2,8 @@ package com.Abb.entities;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
+
 @Entity
 @Table(name = "HAREKETLER")
 public class Hareket {
@@ -29,11 +31,17 @@ public class Hareket {
     @Column(name = "Aciklama")
     private String aciklama;
 
+    @Column(name="kullaniciKod")
+    private Short kullaniciKod;
+
+    @Column(name = "kayitTarihi")
+    private Timestamp kayitTarihi;
+
 
     public Hareket() {
     }
 
-    public Hareket(Long hareketId, String tarih, String saat, Arac arac, Firma firma, Tarife tarife, String aciklama) {
+    public Hareket(Long hareketId, String tarih, String saat, Arac arac, Firma firma, Tarife tarife, String aciklama, Short kullaniciKod, Timestamp kayitTarihi) {
         this.hareketId = hareketId;
         this.tarih = tarih;
         this.saat = saat;
@@ -41,6 +49,8 @@ public class Hareket {
         this.firma = firma;
         this.tarife = tarife;
         this.aciklama = aciklama;
+        this.kullaniciKod = kullaniciKod;
+        this.kayitTarihi = kayitTarihi;
     }
 
     public Long getHareketId() {
@@ -97,5 +107,21 @@ public class Hareket {
 
     public void setAciklama(String aciklama) {
         this.aciklama = aciklama;
+    }
+
+    public Short getKullaniciKod() {
+        return kullaniciKod;
+    }
+
+    public void setKullaniciKod(Short kullaniciKod) {
+        this.kullaniciKod = kullaniciKod;
+    }
+
+    public Timestamp getKayitTarihi() {
+        return kayitTarihi;
+    }
+
+    public void setKayitTarihi(Timestamp kayitTarihi) {
+        this.kayitTarihi = kayitTarihi;
     }
 }

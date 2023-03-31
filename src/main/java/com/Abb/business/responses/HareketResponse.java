@@ -1,10 +1,11 @@
 package com.Abb.business.responses;
 
 public class HareketResponse {
+    private Long hareketId;
     private String saat;
     private String tarih;
     private String aracPlaka;
-    private String firmaAdi;
+    private String firmaFirmaAdi;
     private String tarifeAdi;
     private Double tarifeUcreti;
     private String aciklama;
@@ -12,14 +13,23 @@ public class HareketResponse {
     public HareketResponse() {
     }
 
-    public HareketResponse(String saat, String tarih, String aracPlaka, String firmaAdi, String tarifeAdi, Double tarifeUcreti, String aciklama) {
+    public HareketResponse(Long hareketId, String saat, String tarih, String aracPlaka, String firmaFirmaAdi, String tarifeAdi, Double tarifeUcreti, String aciklama) {
+        this.hareketId = hareketId;
         this.saat = saat;
         this.tarih = tarih;
         this.aracPlaka = aracPlaka;
-        this.firmaAdi = firmaAdi;
+        this.firmaFirmaAdi = firmaFirmaAdi;
         this.tarifeAdi = tarifeAdi;
         this.tarifeUcreti = tarifeUcreti;
         this.aciklama = aciklama;
+    }
+
+    public Long getHareketId() {
+        return hareketId;
+    }
+
+    public void setHareketId(Long hareketId) {
+        this.hareketId = hareketId;
     }
 
     public String getSaat() {
@@ -46,12 +56,12 @@ public class HareketResponse {
         this.aracPlaka = aracPlaka;
     }
 
-    public String getFirmaAdi() {
-        return firmaAdi;
+    public String getFirmaFirmaAdi() {
+        return firmaFirmaAdi;
     }
 
-    public void setFirmaAdi(String firmaAdi) {
-        this.firmaAdi = firmaAdi;
+    public void setFirmaFirmaAdi(String firmaFirmaAdi) {
+        this.firmaFirmaAdi = firmaFirmaAdi;
     }
 
     public String getTarifeAdi() {

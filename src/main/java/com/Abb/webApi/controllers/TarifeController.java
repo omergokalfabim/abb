@@ -16,31 +16,31 @@ public class TarifeController {
     public TarifeController(TarifeService tarifeService) {
         this._tarifeService = tarifeService;
     }
-    @PostMapping()
+    @PostMapping("/add")
     public ResponseEntity<Object> add(@RequestBody TarifeRequest tarifeRequest) throws Exception {
          return ResponseEntity.ok(this._tarifeService.insert(tarifeRequest));
     }
-    @DeleteMapping
+    @DeleteMapping("/delete")
     public ResponseEntity<Object> delete(@RequestBody Tarife tarife)throws Exception{
         return ResponseEntity.ok(this._tarifeService.deleteByEntity(tarife));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletebyid/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable Long id) throws  Exception{
         return ResponseEntity.ok(this._tarifeService.deleteById(id));
     }
 
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<Object> update(@RequestBody TarifeRequest tarifeRequest)throws Exception{
         return ResponseEntity.ok(this._tarifeService.update(tarifeRequest));
     }
 
-    @GetMapping
+    @GetMapping("/selectall")
     public ResponseEntity<Object> selectAll() throws Exception{
         return ResponseEntity.ok(this._tarifeService.selectAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/findbyid/{id}")
     public ResponseEntity<Object> findById(@PathVariable Long id) throws Exception{
         return ResponseEntity.ok(this._tarifeService.findById(id));
     }

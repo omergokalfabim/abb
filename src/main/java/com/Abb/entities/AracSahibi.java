@@ -2,8 +2,8 @@ package com.Abb.entities;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "ARAC_SAHIPLERI")
@@ -26,19 +26,26 @@ public class AracSahibi {
     @Column(name = "Sahip")
     private Boolean isSahip;
 
+    @Column(name="kullaniciKod")
+    private Short kullaniciKod;
+
+    @Column(name="kayitTarihi")
+    private Timestamp kayitTarihi;
     @OneToMany(mappedBy = "aracSahibi")
     private List<Arac> arac;
 
     public AracSahibi() {
     }
 
-    public AracSahibi(Long aracSahibiId, String adi, String soyadi, String kimlikNumarasi, String telefonNumarasi, Boolean isSahip, List<Arac> arac) {
+    public AracSahibi(Long aracSahibiId, String adi, String soyadi, String kimlikNumarasi, String telefonNumarasi, Boolean isSahip, Short kullaniciKod, Timestamp kayitTarihi, List<Arac> arac) {
         this.aracSahibiId = aracSahibiId;
         this.adi = adi;
         this.soyadi = soyadi;
         this.kimlikNumarasi = kimlikNumarasi;
         this.telefonNumarasi = telefonNumarasi;
         this.isSahip = isSahip;
+        this.kullaniciKod = kullaniciKod;
+        this.kayitTarihi = kayitTarihi;
         this.arac = arac;
     }
 
@@ -92,6 +99,26 @@ public class AracSahibi {
 
     public List<Arac> getArac() {
         return arac;
+    }
+
+    public Boolean getSahip() {
+        return isSahip;
+    }
+
+    public Short getKullaniciKod() {
+        return kullaniciKod;
+    }
+
+    public void setKullaniciKod(Short kullaniciKod) {
+        this.kullaniciKod = kullaniciKod;
+    }
+
+    public Timestamp getKayitTarihi() {
+        return kayitTarihi;
+    }
+
+    public void setKayitTarihi(Timestamp kayitTarihi) {
+        this.kayitTarihi = kayitTarihi;
     }
 
     public void setArac(List<Arac> arac) {

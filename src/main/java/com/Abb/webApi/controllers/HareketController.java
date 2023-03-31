@@ -17,27 +17,27 @@ public class HareketController {
     }
 
 
-    @PostMapping()
+    @PostMapping("/add")
     public ResponseEntity<Object> insert(@RequestBody HareketRequest hareketRequest) throws Exception {
         return ResponseEntity.ok(this.hareketService.insert(hareketRequest));
     }
-    @DeleteMapping
+    @DeleteMapping("/delete")
     public ResponseEntity<Object> delete(@RequestBody HareketRequest hareketRequest)throws Exception{
         return ResponseEntity.ok(this.hareketService.deleteByEntity(hareketRequest));
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletebyid/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable Long id) throws Exception{
         return ResponseEntity.ok(this.hareketService.deleteById(id));
     }
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<Object> update(@RequestBody HareketRequest hareketRequest)throws Exception{
         return ResponseEntity.ok(this.hareketService.update(hareketRequest));
     }
-    @GetMapping()
+    @GetMapping("/selectall")
     public ResponseEntity<Object> selectAll() throws Exception {
         return ResponseEntity.ok(this.hareketService.selectAll());
     }
-    @GetMapping("/{id}")
+    @GetMapping("/findById/{id}")
     public ResponseEntity<Object> findById(@PathVariable Long id) throws Exception {
         return ResponseEntity.ok(this.hareketService.findById(id));
     }

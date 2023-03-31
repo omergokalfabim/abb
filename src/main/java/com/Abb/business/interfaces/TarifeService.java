@@ -14,27 +14,12 @@ public interface TarifeService {
 
     DataResult<TarifeRequest> update(TarifeRequest entity) throws Exception;
 
-    Result update(String command) throws Exception;
-
     DataResult<TarifeResponse> findById(Long id) throws Exception;
 
-    DataResult<TarifeResponse> find(String command) throws Exception;
-
-    DataResult<Object[]> findObjectArray(String command) throws Exception;
-
-    DataResult<Object> executeQuery(String command) throws Exception;
-
     DataResult<List<TarifeResponse>> selectAll() throws Exception;
-
-    DataResult<List<TarifeResponse>> selectAll(String command) throws Exception;
-
-    DataResult<List<Object[]>> selectAllByObject(String command) throws Exception;
-
-    DataResult<List<Object[]>> selectAllByObject(String command, Map<String, Object> parameters) throws Exception;
 
     Result deleteByEntity(Tarife entity) throws Exception;
 
     Result deleteById(Long id) throws Exception;
 
-    Result delete(String command) throws Exception;
 }

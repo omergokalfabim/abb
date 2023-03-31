@@ -18,29 +18,31 @@ public class AracMapFirmaController {
         this._aracMapFirmaService = _aracMapFirmaService;
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<Object> insert(@RequestBody AracMapFirmaRequest aracMapFirmaRequest) throws Exception {
         return ResponseEntity.ok(this._aracMapFirmaService.insert(aracMapFirmaRequest));
     }
 
-    @DeleteMapping
+    @DeleteMapping("/delete")
     public ResponseEntity<Object> deleteByEntity(@RequestBody AracMapFirma aracMapFirma)throws Exception{
         return ResponseEntity.ok(this._aracMapFirmaService.deleteByEntity(aracMapFirma));
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletebyid/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable Long id)throws Exception{
         return ResponseEntity.ok(this._aracMapFirmaService.deleteById(id));
     }
 
-    @GetMapping
+    @PutMapping("/update")
+    public ResponseEntity<Object> update(@RequestBody AracMapFirmaRequest aracMapFirmaRequest) throws Exception{
+        return  ResponseEntity.ok(this._aracMapFirmaService.update(aracMapFirmaRequest));
+    }
+    @GetMapping("/selectall")
     public ResponseEntity<Object> selectAll() throws Exception {
         return ResponseEntity.ok(this._aracMapFirmaService.selectAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/findbyid/{id}")
     public ResponseEntity<Object> findById(@PathVariable Long id) throws Exception{
         return ResponseEntity.ok(this._aracMapFirmaService.findById(id));
     }
-
-
 }

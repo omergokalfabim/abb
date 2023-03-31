@@ -15,27 +15,12 @@ public interface FirmaService {
 
     DataResult<FirmaRequest> update(FirmaRequest entity) throws Exception;
 
-    Result update(String command) throws Exception;
-
-    DataResult<FirmaResponse> find(Object id) throws Exception;
-
-    DataResult<FirmaResponse> find(String command) throws Exception;
-
-    DataResult<Object[]> findObjectArray(String command) throws Exception;
-
-    DataResult<Object> executeQuery(String command) throws Exception;
+    DataResult<FirmaResponse> findById(Long id) throws Exception;
 
     DataResult<List<FirmaResponse>> selectAll() throws Exception;
 
-    DataResult<List<FirmaResponse>> selectAll(String command) throws Exception;
-
-    DataResult<List<Object[]>> selectAllByObject(String command) throws Exception;
-
-    DataResult<List<Object[]>> selectAllByObject(String command, Map<String, Object> parameters) throws Exception;
-
     Result deleteByEntity(Firma entity) throws Exception;
 
-    Result deleteById(long id) throws Exception;
+    Result deleteById(Long id) throws Exception;
 
-    Result delete(String command) throws Exception;
 }

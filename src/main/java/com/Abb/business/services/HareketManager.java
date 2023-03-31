@@ -5,8 +5,10 @@ import com.Abb.business.requests.HareketRequest;
 import com.Abb.business.responses.HareketResponse;
 import com.Abb.dataAccess.HareketRepository;
 
+import com.Abb.entities.AracMapFirma;
 import com.Abb.entities.Hareket;
 
+import com.Abb.utilities.constant.Message;
 import com.Abb.utilities.mappers.ModelMapperService;
 import com.Abb.utilities.results.DataResult;
 import com.Abb.utilities.results.Result;
@@ -15,6 +17,7 @@ import com.Abb.utilities.results.SuccessResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -40,16 +43,20 @@ public class HareketManager implements HareketService {
         hareket.setSaat(timeFormat.format(thisDate).toString());
         hareket.setTarih(dateFormat.format(thisDate).toString());
 
+        Date date= new Date();
+        Timestamp timestamp= new Timestamp(date.getTime());
+        hareket.setKayitTarihi(timestamp);
 
         this._hareketRepository.save(hareket);
-        return new SuccessDataResult<HareketRequest>("Success");
+        return new SuccessDataResult<>(entity, Message.hareketAdded);
     }
 
     @Override
     public DataResult<List<HareketResponse>> selectAll(){
         List<Hareket> hareketList=this._hareketRepository.findAll();
-        List<HareketResponse> hareketDtoList=hareketList.stream().map(hareket->this._modelMapperService.forResponse().map(hareket, HareketResponse.class)).collect(Collectors.toList());
-        return new SuccessDataResult<List<HareketResponse>>(hareketDtoList,"Success");
+        List<HareketResponse> hareketResponseList=hareketList.stream().map(hareket->this._modelMapperService.forResponse().map(hareket, HareketResponse.class)).toList();
+
+        return new SuccessDataResult<>(hareketResponseList,Message.hareketlerListed);
     }
     @Override
     public DataResult<HareketRequest> update(HareketRequest entity) throws Exception {
@@ -61,71 +68,30 @@ public class HareketManager implements HareketService {
         hareket.setSaat(timeFormat.format(thisDate).toString());
         hareket.setTarih(dateFormat.format(thisDate).toString());
 
+        Date date= new Date();
+        Timestamp timestamp= new Timestamp(date.getTime());
+        hareket.setKayitTarihi(timestamp);
 
         this._hareketRepository.save(hareket);
-        return new SuccessDataResult<HareketRequest>("Success");
-    }
-
-    @Override
-    public Result update(String command) throws Exception {
-        return null;
+        return new SuccessDataResult<>(entity,Message.hareketUpdated);
     }
 
     @Override
     public DataResult<HareketResponse> findById(Long id) throws Exception {
         Hareket hareket= this._hareketRepository.findById(id).orElseThrow();
         HareketResponse hareketResponse= this._modelMapperService.forResponse().map(hareket,HareketResponse.class);
-        return new SuccessDataResult<>(hareketResponse);
+        return new SuccessDataResult<>(hareketResponse,Message.hareketListed);
     }
-
-    @Override
-    public DataResult<HareketResponse> find(String command) throws Exception {
-        return null;
-    }
-
-    @Override
-    public DataResult<Object[]> findObjectArray(String command) throws Exception {
-        return null;
-    }
-
-    @Override
-    public DataResult<Object> executeQuery(String command) throws Exception {
-        return null;
-    }
-
-
-    @Override
-    public DataResult<List<HareketResponse>> selectAll(String command) throws Exception {
-        List<Hareket> hareketList=this._hareketRepository.findAll();
-        List<HareketResponse> hareketResponseList=hareketList.stream().map(hareket -> this._modelMapperService.forResponse().map(hareket,HareketResponse.class)).collect(Collectors.toList());
-        return new SuccessDataResult<>(hareketResponseList);
-    }
-
-    @Override
-    public DataResult<List<Object[]>> selectAllByObject(String command) throws Exception {
-        return null;
-    }
-
-    @Override
-    public DataResult<List<Object[]>> selectAllByObject(String command, Map<String, Object> parameters) throws Exception {
-        return null;
-    }
-
     @Override
     public Result deleteByEntity(HareketRequest entity) throws Exception {
         Hareket hareket=this._modelMapperService.forRequest().map(entity,Hareket.class);
         this._hareketRepository.delete(hareket);
-        return new SuccessResult("Success");
+        return new SuccessResult(Message.hareketDeleted);
     }
 
     @Override
     public Result deleteById(Long id) throws Exception {
         this._hareketRepository.deleteById(id);
-        return new SuccessResult("Success");
-    }
-
-    @Override
-    public Result delete(String command) throws Exception {
-        return null;
+        return new SuccessResult(Message.hareketDeleted);
     }
 }

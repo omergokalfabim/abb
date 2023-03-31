@@ -1,5 +1,7 @@
 package com.Abb.business.requests;
 
+import java.sql.Timestamp;
+
 public class HareketRequest {
     private String saat;
     private String tarih;
@@ -7,17 +9,20 @@ public class HareketRequest {
     private Long aracId;
     private Long firmaId;
     private Long tarifeId;
-
+    private Short kullaniciKod;
+    private Timestamp kayitTarihi;
     public HareketRequest() {
     }
 
-    public HareketRequest(String saat, String tarih, String aciklama, Long aracId, Long firmaId, Long tarifeId) {
+    public HareketRequest(String saat, String tarih, String aciklama, Long aracId, Long firmaId, Long tarifeId, Short kullaniciKod, Timestamp kayitTarihi) {
         this.saat = saat;
         this.tarih = tarih;
         this.aciklama = aciklama;
         this.aracId = aracId;
         this.firmaId = firmaId;
         this.tarifeId = tarifeId;
+        this.kullaniciKod = kullaniciKod;
+        this.kayitTarihi = kayitTarihi;
     }
 
     public String getSaat() {
@@ -66,5 +71,21 @@ public class HareketRequest {
 
     public void setTarifeId(Long tarifeId) {
         this.tarifeId = tarifeId;
+    }
+
+    public Short getKullaniciKod() {
+        return kullaniciKod;
+    }
+
+    public void setKullaniciKod(Short kullaniciKod) {
+        this.kullaniciKod = kullaniciKod;
+    }
+
+    public Timestamp getKayitTarihi() {
+        return kayitTarihi;
+    }
+
+    public void setKayitTarihi(Timestamp kayitTarihi) {
+        this.kayitTarihi = kayitTarihi;
     }
 }

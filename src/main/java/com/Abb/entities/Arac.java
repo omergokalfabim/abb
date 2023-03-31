@@ -2,6 +2,7 @@ package com.Abb.entities;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Set;
 
@@ -30,18 +31,27 @@ public class Arac {
     @OneToMany(mappedBy = "arac")
     private Set<Hareket> hareket;
 
+    @Column(name = "KullaniciKod")
+    private Short kullaniciKod;
+
+    @Column(name = "KayitTarihi")
+    private Timestamp kayitTarihi;
+
     @OneToMany(mappedBy = "arac")
     private List<AracMapFirma> aracMapFirmaList;
+
     public Arac() {
     }
 
-    public Arac(Long aracId, String plaka, Tarife tarife, AracSahibi aracSahibi, String aciklama, Set<Hareket> hareket, List<AracMapFirma> aracMapFirmaList) {
+    public Arac(Long aracId, String plaka, Tarife tarife, AracSahibi aracSahibi, String aciklama, Set<Hareket> hareket, Short kullaniciKod, Timestamp kayitTarihi, List<AracMapFirma> aracMapFirmaList) {
         this.aracId = aracId;
         this.plaka = plaka;
         this.tarife = tarife;
         this.aracSahibi = aracSahibi;
         this.aciklama = aciklama;
         this.hareket = hareket;
+        this.kullaniciKod = kullaniciKod;
+        this.kayitTarihi = kayitTarihi;
         this.aracMapFirmaList = aracMapFirmaList;
     }
 
@@ -95,6 +105,22 @@ public class Arac {
 
     public List<AracMapFirma> getAracMapFirmaList() {
         return aracMapFirmaList;
+    }
+
+    public Short getKullaniciKod() {
+        return kullaniciKod;
+    }
+
+    public void setKullaniciKod(Short kullaniciKod) {
+        this.kullaniciKod = kullaniciKod;
+    }
+
+    public Timestamp getKayitTarihi() {
+        return kayitTarihi;
+    }
+
+    public void setKayitTarihi(Timestamp kayitTarihi) {
+        this.kayitTarihi = kayitTarihi;
     }
 
     public void setAracMapFirmaList(List<AracMapFirma> aracMapFirmaList) {

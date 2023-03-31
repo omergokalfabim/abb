@@ -16,31 +16,31 @@ public class AracSahibiController {
         this._aracSahibiService = _aracSahibiService;
     }
 
-    @PostMapping()
+    @PostMapping("/add")
     public ResponseEntity<Object> insert(@RequestBody AracSahibiRequest aracSahibiRequest) throws Exception {
         return ResponseEntity.ok(this._aracSahibiService.insert(aracSahibiRequest)) ;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/delete")
     public ResponseEntity<Object> deleteByEntity(@RequestBody AracSahibiRequest aracSahibiRequest)throws Exception{
         return ResponseEntity.ok(this._aracSahibiService.deleteByEntity(aracSahibiRequest));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletebyid/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable Long id)throws Exception{
         return ResponseEntity.ok(this._aracSahibiService.deleteById(id));
     }
 
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<Object> update(@RequestBody AracSahibiRequest aracSahibiRequest)throws Exception{
         return ResponseEntity.ok(this._aracSahibiService.update(aracSahibiRequest));
     }
-    @GetMapping
+    @GetMapping("/selectall")
     public ResponseEntity<Object> selectAll()throws Exception{
         return ResponseEntity.ok(this._aracSahibiService.selectAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/selectbyid/{id}")
     public ResponseEntity<Object> selectById(Long id)throws Exception{
         return ResponseEntity.ok(this._aracSahibiService.findById(id));
     }
