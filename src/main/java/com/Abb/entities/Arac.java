@@ -29,7 +29,7 @@ public class Arac {
     private String aciklama;
 
     @OneToMany(mappedBy = "arac")
-    private Set<Hareket> hareket;
+    private List<Hareket> hareket;
 
     @Column(name = "KullaniciKod")
     private Short kullaniciKod;
@@ -38,12 +38,12 @@ public class Arac {
     private Timestamp kayitTarihi;
 
     @OneToMany(mappedBy = "arac")
-    private List<AracMapFirma> aracMapFirmaList;
+    private List<AracMapFirma> aracMapFirma;
 
     public Arac() {
     }
 
-    public Arac(Long aracId, String plaka, Tarife tarife, AracSahibi aracSahibi, String aciklama, Set<Hareket> hareket, Short kullaniciKod, Timestamp kayitTarihi, List<AracMapFirma> aracMapFirmaList) {
+    public Arac(Long aracId, String plaka, Tarife tarife, AracSahibi aracSahibi, String aciklama, List<Hareket> hareket, Short kullaniciKod, Timestamp kayitTarihi, List<AracMapFirma> aracMapFirma) {
         this.aracId = aracId;
         this.plaka = plaka;
         this.tarife = tarife;
@@ -52,7 +52,7 @@ public class Arac {
         this.hareket = hareket;
         this.kullaniciKod = kullaniciKod;
         this.kayitTarihi = kayitTarihi;
-        this.aracMapFirmaList = aracMapFirmaList;
+        this.aracMapFirma = aracMapFirma;
     }
 
     public Long getAracId() {
@@ -95,16 +95,12 @@ public class Arac {
         this.aciklama = aciklama;
     }
 
-    public Set<Hareket> getHareket() {
+    public List<Hareket> getHareket() {
         return hareket;
     }
 
-    public void setHareket(Set<Hareket> hareket) {
+    public void setHareket(List<Hareket> hareket) {
         this.hareket = hareket;
-    }
-
-    public List<AracMapFirma> getAracMapFirmaList() {
-        return aracMapFirmaList;
     }
 
     public Short getKullaniciKod() {
@@ -123,7 +119,11 @@ public class Arac {
         this.kayitTarihi = kayitTarihi;
     }
 
-    public void setAracMapFirmaList(List<AracMapFirma> aracMapFirmaList) {
-        this.aracMapFirmaList = aracMapFirmaList;
+    public List<AracMapFirma> getAracMapFirma() {
+        return aracMapFirma;
+    }
+
+    public void setAracMapFirma(List<AracMapFirma> aracMapFirma) {
+        this.aracMapFirma = aracMapFirma;
     }
 }

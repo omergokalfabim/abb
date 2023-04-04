@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin("http://localhost:29002")
 @RequestMapping("/abb/hareket")
 public class HareketController {
     HareketService hareketService;

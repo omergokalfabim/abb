@@ -1,5 +1,7 @@
 package com.Abb.business.requests;
 
+import java.sql.Timestamp;
+
 public class FirmaRequest {
     private Long firmaId;
     private int peronNo;
@@ -13,11 +15,11 @@ public class FirmaRequest {
     private Boolean aktifPasif;
 
     private Short kullaniciKod;
-    private Boolean kayitTarihi;
+    private Timestamp kayitTarihi;
     public FirmaRequest() {
     }
 
-    public FirmaRequest(Long firmaId, int peronNo, String adi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, Boolean aktifPasif, Short kullaniciKod, Boolean kayitTarihi) {
+    public FirmaRequest(Long firmaId, int peronNo, String adi, String yetkiliAdi, String yetkiliSoyadi, String telefonNo, String dahiliTelefonNo, String gsmNo, String aciklama, Boolean aktifPasif, Short kullaniciKod, Timestamp kayitTarihi) {
         this.firmaId = firmaId;
         this.peronNo = peronNo;
         this.adi = adi;
@@ -120,11 +122,11 @@ public class FirmaRequest {
         this.kullaniciKod = kullaniciKod;
     }
 
-    public Boolean getKayitTarihi() {
+    public Timestamp getKayitTarihi() {
         return kayitTarihi;
     }
 
-    public void setKayitTarihi(Boolean kayitTarihi) {
+    public void setKayitTarihi(Timestamp kayitTarihi) {
         this.kayitTarihi = kayitTarihi;
     }
 }

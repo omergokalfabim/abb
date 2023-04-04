@@ -4,8 +4,9 @@ import java.sql.Timestamp;
 
 public class AracMapFirmaResponse {
     private Long aracMapFirmaId;
+    private Integer firmaPeronNo;
     private String aracPlaka;
-    private String firmaFirmairmaAdi;
+    private String firmaFirmaAdi;
     private Short kullaniciKod;
     private Timestamp kayitTarihi;
     private Boolean aktif;
@@ -13,10 +14,11 @@ public class AracMapFirmaResponse {
     public AracMapFirmaResponse() {
     }
 
-    public AracMapFirmaResponse(Long aracMapFirmaId, String aracPlaka, String firmaFirmairmaAdi, Short kullaniciKod, Timestamp kayitTarihi, Boolean aktif) {
+    public AracMapFirmaResponse(Long aracMapFirmaId, Integer firmaPeronNo, String aracPlaka, String firmaFirmaAdi, Short kullaniciKod, Timestamp kayitTarihi, Boolean aktif) {
         this.aracMapFirmaId = aracMapFirmaId;
+        this.firmaPeronNo = firmaPeronNo;
         this.aracPlaka = aracPlaka;
-        this.firmaFirmairmaAdi = firmaFirmairmaAdi;
+        this.firmaFirmaAdi = firmaFirmaAdi;
         this.kullaniciKod = kullaniciKod;
         this.kayitTarihi = kayitTarihi;
         this.aktif = aktif;
@@ -30,6 +32,14 @@ public class AracMapFirmaResponse {
         this.aracMapFirmaId = aracMapFirmaId;
     }
 
+    public Integer getFirmaPeronNo() {
+        return firmaPeronNo;
+    }
+
+    public void setFirmaPeronNo(Integer firmaPeronNo) {
+        this.firmaPeronNo = firmaPeronNo;
+    }
+
     public String getAracPlaka() {
         return aracPlaka;
     }
@@ -39,11 +49,11 @@ public class AracMapFirmaResponse {
     }
 
     public String getFirmaFirmaAdi() {
-        return firmaFirmairmaAdi;
+        return firmaFirmaAdi;
     }
 
-    public void setFirmaFirmaAdi(String firmaAdi) {
-        this.firmaFirmairmaAdi = firmaAdi;
+    public void setFirmaFirmaAdi(String firmaFirmaAdi) {
+        this.firmaFirmaAdi = firmaFirmaAdi;
     }
 
     public Short getKullaniciKod() {

@@ -4,9 +4,9 @@ import java.sql.Timestamp;
 
 public class AracResponse {
     private Long aracId;
-    private Integer peronNo;
+    private Integer aracMapFirmaFirmaPeronNo;
     private String plaka;
-    private String firmaAdi;
+    private String firmaFirmaAdi;
     private String aracSahibiAdi;
     private String aracSahibiSoyadi;
     private String aracSahibiTelefon;
@@ -18,11 +18,11 @@ public class AracResponse {
     public AracResponse() {
     }
 
-    public AracResponse(Long aracId, Integer peronNo, String plaka, String firmaAdi, String aracSahibiAdi, String aracSahibiSoyadi, String aracSahibiTelefon, String aciklama, String tarifeAdi, String tarifeUcreti, Short kullaniciKod, Timestamp kayitTarihi) {
+    public AracResponse(Long aracId, Integer aracMapFirmaFirmaPeronNo, String plaka, String firmaFirmaAdi, String aracSahibiAdi, String aracSahibiSoyadi, String aracSahibiTelefon, String aciklama, String tarifeAdi, String tarifeUcreti, Short kullaniciKod, Timestamp kayitTarihi) {
         this.aracId = aracId;
-        this.peronNo = peronNo;
+        this.aracMapFirmaFirmaPeronNo = aracMapFirmaFirmaPeronNo;
         this.plaka = plaka;
-        this.firmaAdi = firmaAdi;
+        this.firmaFirmaAdi = firmaFirmaAdi;
         this.aracSahibiAdi = aracSahibiAdi;
         this.aracSahibiSoyadi = aracSahibiSoyadi;
         this.aracSahibiTelefon = aracSahibiTelefon;
@@ -41,12 +41,12 @@ public class AracResponse {
         this.aracId = aracId;
     }
 
-    public Integer getPeronNo() {
-        return peronNo;
+    public Integer getAracMapFirmaFirmaPeronNo() {
+        return aracMapFirmaFirmaPeronNo;
     }
 
-    public void setPeronNo(Integer peronNo) {
-        this.peronNo = peronNo;
+    public void setAracMapFirmaFirmaPeronNo(Integer aracMapFirmaFirmaPeronNo) {
+        this.aracMapFirmaFirmaPeronNo = aracMapFirmaFirmaPeronNo;
     }
 
     public String getPlaka() {
@@ -57,12 +57,12 @@ public class AracResponse {
         this.plaka = plaka;
     }
 
-    public String getFirmaAdi() {
-        return firmaAdi;
+    public String getFirmaFirmaAdi() {
+        return firmaFirmaAdi;
     }
 
-    public void setFirmaAdi(String firmaAdi) {
-        this.firmaAdi = firmaAdi;
+    public void setFirmaFirmaAdi(String firmaFirmaAdi) {
+        this.firmaFirmaAdi = firmaFirmaAdi;
     }
 
     public String getAracSahibiAdi() {
